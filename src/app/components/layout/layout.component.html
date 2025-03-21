@@ -1,0 +1,119 @@
+<div class="page-wrapper layout-container toggled">
+    <a id="show-sidebar" class="btn btn-sm btn-dark pointer">
+      <i class="fas fa-bars"></i>
+    </a>
+    <nav id="sidebar" class="sidebar-wrapper">
+      <div class="sidebar-content">
+        <div class="sidebar-brand">
+          <!-- <a [href]="brandUrl" target="_blank">
+            <img class="app_logo img-responsive img-rounded shadow" src="/images/logos/fms_logo_v2.jpeg" alt="Application logo">
+            <span class="app-name">
+              <strong>{{brand}}</strong>
+            </span>
+          </a>  -->
+  
+          <a [routerLink]="['/landing']"> 
+            <img class="app_logo img-responsive img-rounded shadow" src="/images/logos/fms_logo_v2.png" alt="Application logo">
+            <span class="app-name">
+              <strong>Sky service</strong>
+            </span>
+          </a>
+  
+          <div id="close-sidebar">
+            <i class="fas fa-times"></i>
+          </div>
+        </div>
+        <!-- sidebar-search  -->
+        <div class="sidebar-menu">
+          <ul class="w-100">
+  
+            <div class="spinner-border text-warning m-3" role="status" *ngIf="false">
+            </div>
+            <ng-template ngFor [ngForOf]="navItems" [ngForTemplate]="pTemplate"></ng-template>
+          </ul>
+        </div>
+        <!-- sidebar-menu  -->
+      </div>
+      <!-- sidebar-content  -->
+      <div class="sidebar-footer">
+        <reminder-noti-icon></reminder-noti-icon>
+  
+        <!-- <a [routerLink]="['/approvals-center']" title="{{'commonControls.titles.ApprovalCenter' | translate}}" class="pointer"
+           [hidden]="loginUser.isFMS || loginUser.isCustomer">
+          <i class="fas fa-badge-check icon"></i>
+        </a> -->
+  
+        <!-- <a routerLinkActive="active" [routerLink]="['/profile']" class="pointer" title="{{loginUser.ProfileString}}">
+          <i class="fa fa-user"></i>
+        </a> -->
+  
+        <a id="dropdownNotificationMenuLink" #notifnBellEL (click)="onNotificationIconClicked(notifnBellEL)">
+          <i class="fas fa-bell"></i>
+          <span class="badge badge-pill badge-success notification"
+                [hidden]="NewNotificationCount == 0">{{NewNotificationCount}}</span>
+        </a>
+        <!-- <a routerLinkActive="active"  class="pointer" title="{{'commonControls.titles.SwitchBranch' | translate}}" (dbclick)="onSwitchIconClicked()"
+          [hidden]="showSwitchBranchIcon">
+          <i class="fa fa-exchange"></i>
+        </a> -->
+  
+  
+        <a routerLinkActive="active" [routerLink]="['/logout']" class="pointer" title="{{'Logout'}}">
+          <i class="fa fa-power-off"></i>
+        </a>
+      </div>
+    </nav>
+    <!-- sidebar-wrapper  -->
+    <main class="page-content h-100">
+      <div>
+        <!-- <app-shipment-bread-crumb *ngIf="notCustomer"></app-shipment-bread-crumb> -->
+      </div>
+      <div style="padding-bottom: 15px;">
+        <router-outlet></router-outlet>
+      </div>
+      <!-- <div class="footer-content" *ngIf="notCustomer">
+        <span><a href="TermsOfService" target="_blank">Terms of Service</a> ({{version}})</span>
+      </div> -->
+    </main>
+    <!-- page-content" -->
+  </div>
+  <!-- page-wrapper -->
+  
+  <ng-template #pTemplate let-item>
+  
+    <li *ngIf="item.permission && item.children.length == 0">
+      <a class="pointer hover pTemp-link"   [ngClass]="{ active: item.children && item.children.length == 0 && item.route ? router.isActive(item.route, false) : false }"
+        (click)="menuClick(item, $event)">
+        <i class="{{ item.iconName }}"></i>
+        <span [title]="item.realisedDisplayName" [innerHTML]="item.realisedDisplayName"></span>
+      </a>
+    </li>
+  
+    <li class="sidebar-dropdown" [ngClass]="{
+      'active': item.expanded
+  }" *ngIf="item.permission && item.children.length">
+      <a (click)="toggleItem(item)" class="pointer hover">
+        <i class="{{ item.iconName }}" [style]="item.cssStyle"></i>
+        <span [innerHTML]="item.realisedDisplayName"></span>
+        <i class="fa float-right" style="color: whitesmoke;" [ngClass]="{
+          'fa-caret-down': item.expanded, 'fa-caret-right': !item.expanded }"></i>
+      </a>
+      <div class="sidebar-submenu" *ngIf="item.permission && item.children.length" [ngClass]="{
+        'show': item.expanded
+    }">
+        <ul class="w-100">
+          <!-- <ng-template *ngFor="let child of item.children"> -->
+          <!-- <ng-container *ngTemplateOutlet="menuside; context: child"></ng-container> -->
+          <ng-template ngFor [ngForOf]="item.children" [ngForTemplate]="pTemplate"></ng-template>
+          <!-- </ng-template> -->
+          <!-- <orch-menu-list-item *ngFor="let child of item.children" [item]="child" [depth]="depth + 1">
+          </orch-menu-list-item> -->
+        </ul>
+      </div>
+    </li>
+  
+  </ng-template>
+  
+  <!-- <quick-link-window-component></quick-link-window-component>
+  <delegate-clock></delegate-clock> -->
+  

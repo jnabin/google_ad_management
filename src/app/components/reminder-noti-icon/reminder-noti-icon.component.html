@@ -1,0 +1,7 @@
+<a routerLinkActive="active" [routerLink]="['/reminder-center']" title="{{'Reminder Center'}}" class="pointer link-reminder">
+    <i class="fa fa-history"></i>
+    <span class="badge shadow-sm badge-pill badge-danger px-2" style="position: absolute; right: -5px; top: 7px;"
+        *ngIf="count > 0">
+        {{count}}
+    </span>
+</a>

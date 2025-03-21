@@ -1,0 +1,35 @@
+.subscription-plan-wrapper .choose-view{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+.subscription-plan-wrapper .choose-view button{
+    border: none;
+    background-color: transparent;
+    font-size: .875rem;
+  line-height: 1.25rem;
+  --tw-text-opacity: 1;
+  color: rgb(55 65 81/var(--tw-text-opacity));
+}
+.subscription-plan-wrapper .choose-view button:first-child.is-active{
+    --tw-bg-opacity: 1;
+    background-color: rgb(37 99 235/var(--tw-bg-opacity));
+    color: white;
+    border-top-left-radius: 0.5rem;
+  border-bottom-left-radius: 0.5rem;
+}
+.subscription-plan-wrapper .choose-view button:last-child.is-active{
+    --tw-bg-opacity: 1;
+    background-color: rgb(37 99 235/var(--tw-bg-opacity));
+    color: white;
+    border-top-right-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+}
+.hide-open-button{
+    display: inline-flex;
+    align-items: center;
+    border: none;
+    --tw-text-opacity: 1;
+    color: rgb(37 99 235/var(--tw-text-opacity));
+    background-color: transparent;
+}

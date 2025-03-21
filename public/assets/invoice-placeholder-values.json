@@ -1,0 +1,13 @@
+{
+    "AgencyInvoiceName": "SkyTech Solutions",
+    "AgencyInvoiceAddress": "123 Tech Street, Dhaka, Bangladesh",
+    "AgencyInvoiceContactNo": "+880 1234-567890",
+    "AgencyInvoiceEmail": "info@skytechsolutions.com",
+    "AgencyInvoiceWebsite": "https://www.skytechsolutions.com",
+    "AgencyInvoiceFormatFormula": "INV-{YYYY}-{MM}-{DD}-{0001}",
+    "ClientName": "John Doe",
+    "ClientType": "Corporate",
+    "ClientAddress": "456 Business Ave, New York, USA",
+    "ClientContactNo": "+1 987-654-3210",
+    "ClientEmail": "john.doe@business.com"
+}

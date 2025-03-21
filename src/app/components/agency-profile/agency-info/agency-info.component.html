@@ -1,0 +1,47 @@
+<form [formGroup]="agencyForm" class="form-container">
+    <mat-form-field appearance="outline">
+      <mat-label>Agency Name</mat-label>
+      <input matInput formControlName="AgencyName" required>
+      <mat-error *ngIf="agencyForm.controls['AgencyName'].invalid && agencyForm.controls['AgencyName'].touched">
+        Agency Name is required.
+      </mat-error>
+    </mat-form-field>
+  
+    <mat-form-field appearance="outline">
+      <mat-label>Email Address</mat-label>
+      <input matInput type="AgencyEmail" formControlName="AgencyEmail" required>
+      <mat-error *ngIf="agencyForm.controls['AgencyEmail'].invalid && agencyForm.controls['AgencyEmail'].touched">
+        Enter a valid email address.
+      </mat-error>
+    </mat-form-field>
+  
+    <mat-form-field appearance="outline">
+      <mat-label>Address</mat-label>
+      <input matInput formControlName="AgencyAddress" required>
+      <mat-error *ngIf="agencyForm.controls['AgencyAddress'].invalid && agencyForm.controls['AgencyAddress'].touched">
+        Address is required.
+      </mat-error>
+    </mat-form-field>
+  
+    <mat-form-field appearance="outline">
+      <mat-label>Contact Number</mat-label>
+      <input matInput formControlName="AgencyContactNo" required>
+      <mat-error *ngIf="agencyForm.controls['AgencyContactNo'].invalid && agencyForm.controls['AgencyContactNo'].touched">
+        Enter a valid contact number.
+      </mat-error>
+    </mat-form-field>
+  
+    <mat-form-field appearance="outline">
+      <mat-label>Website</mat-label>
+      <input matInput formControlName="AgencyWebsite" required>
+      <mat-error *ngIf="agencyForm.controls['AgencyWebsite'].invalid && agencyForm.controls['AgencyWebsite'].touched">
+        Website is required.
+      </mat-error>
+    </mat-form-field>
+  
+    <div class="actions">
+      <button mat-button color="warn" (click)="resetForm()">Reset</button>
+      <button mat-raised-button color="primary" (click)="saveForm()" [disabled]="agencyForm.invalid">Save Changes</button>
+    </div>
+  </form>
+  

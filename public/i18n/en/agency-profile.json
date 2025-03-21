@@ -1,0 +1,91 @@
+{
+  "AgencyProfile": {
+    "titles": {
+      "agencyProile": "Agency Profile Management",
+      "manageAgencyInformation": "Manage your agency information and invoice branding preferences"
+    },
+    "buttons": {
+      "agencyInformation": "Agency Information",
+      "brandingPreferences": "Branding Preferences",
+      "invoiceInformation": "Invoice Information"
+    },
+    "agencyInformation": {
+      "buttons": {
+        "reset": "Reset",
+        "saveChanges": "Save Changes"
+      },
+      "formFields": {
+        "agencyName": {
+          "label": "Agency Name",
+          "requiredMessage": "Agency Name is required"
+        },
+        "emailAddress": {
+          "label": "Email Address",
+          "requiredMessage": "Enter a valid email address."
+        },
+        "address": {
+          "label": "Address",
+          "requiredMessage": "Address is required"
+        },
+        "contactNumber": {
+          "label": "Contact Number",
+          "requiredMessage": "Enter a valid contact number."
+        },
+        "website": {
+          "label": "Website",
+          "requiredMessage": "Website is required"
+        }
+      }
+    },
+    "brandingPreferences": {
+      "buttons": {
+        "reset": "Reset",
+        "saveChanges": "Save Changes"
+      },
+      "formFields": {
+        "primaryColor": {
+          "lable": "Primary Color"
+        },
+        "agencyLogo": {
+          "lable": "Agency Logo"
+        },
+        "fontColor": {
+          "lable": "Font Color"
+        },
+        "favicon": {
+          "lable": "Favicon"
+        }
+      }
+    },
+    "invoiceInformation": {
+      "buttons": {
+        "reset": "Reset",
+        "saveChanges": "Save Changes"
+      },
+      "titles": {
+        "invoiceWillBeDisplayed": "Invoice will be display the same information as Agency"
+      },
+      "formFields": {
+        "copyAgencyInfo": {
+          "label": "Use Agency Information for Invoice"
+        },
+        "invoiceAgencyName": {
+          "label": "Invoice Agency Name",
+          "requiredMessage": "Agency Name is required."
+        },
+        "invoiceContactNumber": {
+          "label": "Invoice Contact Number",
+          "requiredMessage": "Enter a valid contact number."
+        },
+        "invoiceWebsite": {
+          "label": "Invoice Website",
+          "requiredMessage": "Website is required."
+        },
+        "invoiceLogo": {
+          "label": "Invoice Logo",
+          "requiredMessage": ""
+        }
+      }
+    }
+  }
+}

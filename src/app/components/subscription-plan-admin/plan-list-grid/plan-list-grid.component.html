@@ -1,0 +1,54 @@
+<div class="grid-wrapper max-w-7xl mx-auto px-4 py-6 sm:px-6 lg:px-8">
+    <div class="grid-table-wrapper">
+        <div class="grid-table">
+            <table>
+                <thead class="bg-gray-50">
+                    <tr>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">{{'Plan Name' | uppercase}}</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">{{'Price'  | uppercase}}</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">{{'Status'  | uppercase}}</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">{{'Action'  | uppercase}}</th>
+                    </tr>
+                </thead>
+                <tbody class="bg-white divide-y divide-gray-200">
+                    <tr *ngFor="let item of planList()">
+                        <td class="px-6 py-4 whitespace-nowrap user">
+                            <div class="primary-text text-sm font-medium text-gray-900">
+                                {{item.SubsPlanName}}
+                            </div>
+                            <div class="secondary-text text-sm text-gray-500">
+                                {{item.SubsPlanDescription}}
+                            </div>
+                        </td>
+                        <td class="px-6 py-4 whitespace-nowrap">
+                            <div class="primary-text text-sm font-medium text-gray-900">
+
+                                {{'$'+item.SubsPlanPrice+'/'+item.CategoryName}}
+                            </div>
+                        </td>
+                        <td class="px-6 py-4 whitespace-nowrap">
+                            <button class="status inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">{{'Active'}}</button>
+                        </td>
+                        <td class="px-6 py-4 whitespace-nowrap">
+                            <button mat-icon-button [matMenuTriggerFor]="menu" class="action-btn" (click)="setSelectedRow(item)">
+                                <mat-icon>more_horiz</mat-icon>
+                              </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<mat-menu #menu="matMenu">
+    <button mat-menu-item (click)="viewItem(selectedRow)">
+      <mat-icon>visibility</mat-icon> View
+    </button>
+    <button mat-menu-item (click)="editItem(selectedRow)">
+      <mat-icon>edit</mat-icon> Edit
+    </button>
+    <button mat-menu-item (click)="deleteItem(selectedRow)">
+      <mat-icon>delete</mat-icon> Delete
+    </button>
+  </mat-menu>

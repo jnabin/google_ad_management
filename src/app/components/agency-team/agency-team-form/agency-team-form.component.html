@@ -1,0 +1,90 @@
+<div class="modal-header">
+    <h2 class="text-xl font-semibold text-gray-900 mb-0">{{title}}</h2>
+    <button mat-icon-button (click)="closeModal()" aria-label="Close">
+      <mat-icon>close</mat-icon>
+    </button>
+  </div>
+  
+  <div class="modal-body">
+    <form [formGroup]="teamForm" (ngSubmit)="onSubmit()">
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Unique Code</mat-label>
+        <input matInput formControlName="UserUniqueCode" />
+        <mat-error *ngIf="teamForm.get('UserUniqueCode')?.invalid && teamForm.get('UserUniqueCode')?.touched">
+          Unique Code is required
+        </mat-error>
+      </mat-form-field>
+  
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>First Name</mat-label>
+        <input matInput formControlName="UserFirstName" />
+        <mat-error *ngIf="teamForm.get('UserFirstName')?.invalid && teamForm.get('UserFirstName')?.touched">
+          First Name is required
+        </mat-error>
+      </mat-form-field>
+  
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Last Name</mat-label>
+        <input matInput formControlName="UserLastName" />
+        <mat-error *ngIf="teamForm.get('UserLastName')?.invalid && teamForm.get('UserLastName')?.touched">
+          Last Name is required
+        </mat-error>
+      </mat-form-field>
+  
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Email</mat-label>
+        <input matInput formControlName="UserMail" />
+        <mat-error *ngIf="teamForm.get('UserMail')?.invalid && teamForm.get('UserMail')?.touched">
+          Valid Email is required
+        </mat-error>
+      </mat-form-field>
+  
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Contact No</mat-label>
+        <input matInput formControlName="UserContactNo" />
+      </mat-form-field>
+  
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Category</mat-label>
+        <mat-select formControlName="UserCategoryId">
+            <mat-option *ngFor="let category of categories" [value]="category.id">
+              {{ category.name }}
+            </mat-option>
+          </mat-select>
+          <mat-error *ngIf="teamForm.get('UserCategoryId')?.invalid && teamForm.get('UserCategoryId')?.touched">
+            Category is required
+          </mat-error>
+      </mat-form-field>
+  
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Role</mat-label>
+        <mat-select formControlName="UserRoleId">
+            <mat-option *ngFor="let role of roles" [value]="role.id">
+              {{ role.name }}
+            </mat-option>
+          </mat-select>
+          <mat-error *ngIf="teamForm.get('UserRoleId')?.invalid && teamForm.get('UserRoleId')?.touched">
+            Role is required
+          </mat-error>
+      </mat-form-field>
+  
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Username</mat-label>
+        <input matInput formControlName="UserName" />
+      </mat-form-field>
+  
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Password</mat-label>
+        <input matInput formControlName="UserPassword" type="password" />
+        <mat-error *ngIf="teamForm.get('UserPassword')?.invalid && teamForm.get('UserPassword')?.touched">
+          Password is required and should be at least 6 characters long
+        </mat-error>
+      </mat-form-field>
+    </form>
+  </div>
+  
+  <div class="modal-footer">
+    <button mat-raised-button color="primary" type="submit" [disabled]="teamForm.invalid" (click)="triggerSubmit()">Submit</button>
+    <button mat-button (click)="closeModal()">Cancel</button>
+  </div>
+  

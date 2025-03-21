@@ -1,0 +1,165 @@
+.invoice-container {
+  padding: 20px;
+  max-width: 900px;
+  margin: auto;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
+}
+.logo-preview {
+  width: 120px;
+  cursor: pointer;
+}
+.editable {
+  border-bottom: 1px dashed #ccc;
+  padding: 5px;
+  min-width: 150px;
+}
+.invoice-details h2{
+    margin-bottom: 0px;
+}
+.borderless {
+  border: none;
+  outline: none;
+  background: transparent;
+}
+.borderless:focus {
+  border-bottom: 1px solid #000;
+}
+.invoice-details {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+th,
+td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+th {
+  background-color: #f4f4f4;
+}
+button {
+  background: #007bff;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+button:hover {
+  background: #0056b3;
+}
+.invoice-top-section{
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 50px;
+}
+
+.invoice-top-section .invoice-details{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.bill-to-section{
+    margin-top: 30px;
+}
+.invoice-items-table table td input{
+    display: inline-block;
+    width: 100% !important;
+}
+
+.invoice-items-table{
+    margin-top: 35px;
+}
+
+.editable-row{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.bill-to-section h6{
+    color: gray;
+    font-weight: bold;
+}
+
+.remove-item button{
+    background-color: unset;
+    padding: 0px;
+    margin-top: 0px;
+}
+
+td.remove-item{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+button.add-item{
+    background-color: transparent;
+    color: #007bff;
+    display: inline-flex;
+    gap: 5px;
+    align-items: center;
+    padding-left: 0px;
+}
+h4.agency-name{
+    font-weight: bold;
+    margin-bottom: 0px;
+    margin-top: 5px;
+}
+
+.agency-details div.editable{
+    padding: 2px;
+}
+
+.bill-to-section div.editable{
+    padding: 2px;
+}
+.subtotal-section{
+    display: flex;
+    justify-content: flex-end;
+    max-width: 300px;
+    margin-top: 20px;
+    margin-left: auto;
+    flex-direction: column;
+    gap: 5px;
+}
+.subtotal-section hr{
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+.subtotal-section .subtotal-row,
+.subtotal-section .total-row{
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.subtotal-section .subtotal-row .label-total,
+.subtotal-section .total-row .label-total{
+    color: gray;
+}
+
+.subtotal-section .subtotal-row .label-value,
+.subtotal-section .total-row .label-value{
+    font-weight: bold;
+}
+
+.subtotal-section .total-row .label-total{
+    color: rgb(4, 160, 4);
+    font-weight: bold;
+}
+
+.subtotal-section .total-row .label-value{
+    color: rgb(4, 160, 4);
+}

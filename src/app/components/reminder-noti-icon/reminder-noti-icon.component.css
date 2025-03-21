@@ -1,0 +1,14 @@
+a.link-reminder {
+    text-align: center;
+    height: 30px;
+    line-height: 30px;
+    position: relative;
+}
+
+a.link-reminder  i {
+    color: white;
+  }
+
+a.link-reminder  i:hover {
+    color: #b8bfce;
+  }

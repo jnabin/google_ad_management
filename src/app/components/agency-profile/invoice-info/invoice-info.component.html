@@ -1,0 +1,59 @@
+<form [formGroup]="invoiceForm" class="form-container">
+  <div class="user-agency-bar">
+    <div class="left">
+      <mat-checkbox formControlName="IsSameAsAgency" (change)="copyAgencyInfoIntoInvoice($event)" class="example-margin">Use Agency Information for Invoice</mat-checkbox>
+    </div>
+    <div class="right">
+      Invoice will be display the same information as Agency
+    </div>
+  </div>
+    <mat-form-field appearance="outline">
+      <mat-label>Invoice Agency Name</mat-label>
+      <input matInput formControlName="AgencyInvoiceName" required>
+      <mat-error *ngIf="invoiceForm.controls['AgencyInvoiceName'].invalid && invoiceForm.controls['AgencyInvoiceName'].touched">
+        Agency Name is required.
+      </mat-error>
+    </mat-form-field>
+  
+    <mat-form-field appearance="outline">
+      <mat-label>Invoice Email Address</mat-label>
+      <input matInput type="email" formControlName="AgencyInvoiceEmail" required>
+      <mat-error *ngIf="invoiceForm.controls['AgencyInvoiceEmail'].invalid && invoiceForm.controls['AgencyInvoiceEmail'].touched">
+        Enter a valid email address.
+      </mat-error>
+    </mat-form-field>
+  
+    <mat-form-field appearance="outline">
+      <mat-label>Invoice Address</mat-label>
+      <input matInput formControlName="AgencyInvoiceAddress" required>
+      <mat-error *ngIf="invoiceForm.controls['AgencyInvoiceAddress'].invalid && invoiceForm.controls['AgencyInvoiceAddress'].touched">
+        Address is required.
+      </mat-error>
+    </mat-form-field>
+  
+    <mat-form-field appearance="outline">
+      <mat-label>Invoice Contact Number</mat-label>
+      <input matInput formControlName="AgencyInvoiceContactNo" required>
+      <mat-error *ngIf="invoiceForm.controls['AgencyInvoiceContactNo'].invalid && invoiceForm.controls['AgencyInvoiceContactNo'].touched">
+        Enter a valid contact number.
+      </mat-error>
+    </mat-form-field>
+  
+    <mat-form-field appearance="outline">
+      <mat-label>Invoice Website</mat-label>
+      <input matInput formControlName="AgencyInvoiceWebsite" required>
+      <mat-error *ngIf="invoiceForm.controls['AgencyInvoiceWebsite'].invalid && invoiceForm.controls['AgencyInvoiceWebsite'].touched">
+        Website is required.
+      </mat-error>
+    </mat-form-field>
+  
+    <div class="form-group">
+        <app-file-upload-input label="Invoice Logo" formControlName="AgencyInvoiceLogo" accept=".svg, .png, .jpg, .jpeg" (fileChange)="convertFileToBase64($event, 'AgencyInvoiceLogoInByte')"></app-file-upload-input>
+    </div>
+  
+    <div class="actions">
+      <button mat-button color="warn" (click)="resetForm()">Reset</button>
+      <button mat-raised-button color="primary" (click)="saveForm()" [disabled]="invoiceForm.invalid">Save Changes</button>
+    </div>
+  </form>
+  

@@ -1,0 +1,25 @@
+<div class="file-upload-container">
+    <label>{{ label }}</label>
+  
+    <!-- Drag & Drop Container -->
+    <div class="drop-area" 
+         [class.drag-over]="dragOver()" 
+         (drop)="handleDrop($event)" 
+         (click)="openFileDialog()">
+  
+      <!-- File input (fully hidden, manually triggered) -->
+      <input #fileInput type="file" [accept]="accept" (change)="handleFileInput($event)" hidden>
+      <ng-container *ngIf="!file()">
+        <p>📁</p>
+        <!-- Drag & Drop / Browse Text -->
+        <p>Click to upload or drag and drop or <span class="browse-text">browse</span></p>
+      </ng-container>
+  
+      <!-- File Preview with Clear Button -->
+      <div *ngIf="file()" class="file-preview">
+        <p>{{ file()?.name }}</p>
+        <button (click)="clearFile($event)">❌</button>
+      </div>
+    </div>
+  </div>
+  

@@ -1,0 +1,35 @@
+.form-container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    max-width: 100%;
+    margin: auto;
+  }
+  
+  .actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  
+  .brand-preference-form{
+    display: flex;
+    gap: 20px;
+  }
+  .brand-preference-form .left,
+  .brand-preference-form .right{
+    flex-grow: 1;
+    flex-basis: 50%;
+    flex-shrink: 0;
+    max-width: calc(50% - 10px);
+  }
+
+  @media screen and (max-width: 780px) {
+    .brand-preference-form{
+      flex-direction: column;
+    }
+    .brand-preference-form .left,
+  .brand-preference-form .right{
+    max-width: 100%;
+  }
+  }

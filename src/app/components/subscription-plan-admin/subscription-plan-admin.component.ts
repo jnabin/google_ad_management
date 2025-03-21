@@ -1,0 +1,86 @@
+import { Component, CUSTOM_ELEMENTS_SCHEMA, inject, signal } from '@angular/core';
+import { MatButtonModule } from '@angular/material/button';
+import { PlanListGridComponent } from './plan-list-grid/plan-list-grid.component';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { SubscriptionPlanDto } from '../../models/subscription-plan';
+import { SubscriptionPlanFormComponent } from './subscription-plan-form/subscription-plan-form.component';
+import { SubscriptionPlanAdminService } from '../../services/subscription-plan-admin.service';
+
+@Component({
+  selector: 'app-subscription-plan-admin',
+  imports: [MatButtonModule, PlanListGridComponent],
+  templateUrl: './subscription-plan-admin.component.html',
+  styleUrl: './subscription-plan-admin.component.css',
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
+})
+export class SubscriptionPlanAdminComponent {
+    errorMessage = signal<string | null>('');
+     planService: SubscriptionPlanAdminService = inject(SubscriptionPlanAdminService);
+    planList = signal<SubscriptionPlanDto[]>([]);
+    billingPeriods = [
+      {id: 1, name: "Monthly"},
+      {id: 2, name: "Quarterly"},
+      {id: 3, name: "Annually"}
+    ];
+  constructor(private modalService: NgbModal) {
+    this.loadPlans();
+  }
+
+  private loadPlans(){
+    this.planService.getPlans().subscribe({
+      next: (data) => {
+        if('error' in data){
+          this.errorMessage.set(data.error)
+          this.planList.set([]);
+        } else {
+          data.forEach(x => x.CategoryName = this.billingPeriods.find(c => c.id == x.SubsPlanBillingPeriodId)?.name)
+          this.planList.set(data);
+          this.errorMessage.set(null);
+
+          console.log(this.planList());
+          console.log(this.errorMessage());
+        }
+      },
+      error: (err) => {
+        this.errorMessage.set(err.message);
+        this.planList.set([]);
+      }
+    })
+  }
+
+  processAction(eventData: {action: string, ele: SubscriptionPlanDto}){
+    if(eventData.action == 'delete'){
+      this.planList.update(x =>  x.filter(y => y.SubsPlanId != eventData.ele.SubsPlanId));
+      return;
+    }
+    this.openModal(eventData.ele)
+  }
+
+  openModal(element:SubscriptionPlanDto | null= null) {
+    const modalRef = this.modalService.open(SubscriptionPlanFormComponent,
+       {
+        size: 'lg',
+        backdrop: 'static', 
+        keyboard: false
+       }
+      );
+      console.log(element);
+    modalRef.componentInstance.planData = element ? element : new SubscriptionPlanDto();
+    modalRef.componentInstance.billingPeriods = this.billingPeriods;
+    // modalRef.componentInstance.roles = this.roles;
+
+    modalRef.result.then(
+      (result) => {
+        if (result) {
+          // Save the data returned from the modal
+          console.log('Data received from modal:', result);
+          //this.teamGridList.update(data => [...data, this.getGridDtoFromForm(result)])
+          // Optionally, save it via a service or further processing
+        }
+      },
+      (reason) => {
+        console.log('Modal dismissed:', reason);
+      }
+    );
+  }
+}

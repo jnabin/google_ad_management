@@ -1,0 +1,19 @@
+
+<div class="profile-card-wrapper">
+    <mat-card class="profile-card bg-gray-50">
+        <mat-card-title class="card-title">{{'AgencyProfile.titles.agencyProile' | translate}}</mat-card-title>
+        <mat-card-subtitle class="card-sub-title">{{'AgencyProfile.titles.manageAgencyInformation' | translate}}</mat-card-subtitle>
+        <hr>
+        <!-- Dynamic Material Tabs -->
+        <mat-tab-group [(selectedIndex)]="selectedIndex" class="full-height">
+            @for (tab of tabs(); track tab.id) {
+                <mat-tab [label]="tab.label">
+                    <div class="tab-body-wrapper">
+                        <ng-container *ngComponentOutlet="tab.component; injector: injector"></ng-container>
+                    </div>
+                </mat-tab>
+          }
+        </mat-tab-group>
+      </mat-card>
+</div>
+  

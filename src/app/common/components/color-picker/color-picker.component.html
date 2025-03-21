@@ -1,0 +1,8 @@
+<div class="color-picker-container">
+    <label>{{ label }}</label>
+    <div class="color-input-group">
+      <input  type="color" [value]="color().substring(0, 7)" (input)="updateColor($event)">
+      <input type="text" class="text-input" [value]="color()" (input)="updateColor($event)" maxlength="9">
+    </div>
+  </div>
+  

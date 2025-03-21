@@ -1,0 +1,11 @@
+.plan-list-wrapper{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin-top: 3rem;
+}
+.feature-list{
+    display: flex;
+    flex-direction: column;
+    gap:10px;
+}

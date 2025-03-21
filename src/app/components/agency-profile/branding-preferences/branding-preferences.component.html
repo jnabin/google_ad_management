@@ -1,0 +1,32 @@
+<form [formGroup]="brandingForm" class="form-container">
+    <div class="brand-preference-form">
+        <div class="left">
+            <div class="form-group">
+                <app-color-picker label="Primary Color" formControlName="AgencyPrimaryColorCode"></app-color-picker>
+            </div>
+        </div>
+        <div class="right">
+            <div class="form-group">
+                <app-color-picker label="Font Color" formControlName="AgencyFontColorCode"></app-color-picker>
+            </div>
+        </div>
+    </div>
+    <div class="brand-preference-form">
+        <div class="left">
+            <div class="form-group">
+                <app-file-upload-input label="Agency Logo" [accept]="'.svg, .png, .jpg, .jpeg'" formControlName="agencyLogo"  (fileChange)="convertFileToBase64($event, 'AgencyLogoInByte')"></app-file-upload-input>
+            </div>
+        </div>
+        <div class="right">
+            <div class="form-group">
+                <app-file-upload-input label="Favicon" [accept]="'.svg, .png, .jpg, .jpeg'" formControlName="favicon" (fileChange)="convertFileToBase64($event, 'AgencyFaviconInByte')"></app-file-upload-input>
+            </div>
+        </div>
+    </div>
+  
+    <div class="actions">
+      <button mat-button color="warn" (click)="brandingForm.reset()">Reset</button>
+      <button mat-raised-button color="primary" (click)="saveForm()" [disabled]="brandingForm.invalid">Save Changes</button>
+    </div>
+  </form>
+  

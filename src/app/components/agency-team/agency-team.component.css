@@ -1,0 +1,11 @@
+.agency-team-wrapper .page-header{
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    justify-content: space-between;
+}
+.agency-team-wrapper .page-header .right button ::ng-deep .mdc-button__label{
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+}

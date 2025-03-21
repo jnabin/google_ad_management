@@ -1,0 +1,114 @@
+<div class="modal-header">
+    <h2 class="text-xl font-semibold text-gray-900 mb-0">{{title}}</h2>
+    <button mat-icon-button (click)="closeModal()" aria-label="Close">
+      <mat-icon>close</mat-icon>
+    </button>
+</div>
+<div class="modal-body">
+    <form [formGroup]="planForm" (ngSubmit)="onSubmit()">
+        <!-- Subscription Name -->
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Subscription Plan Name</mat-label>
+          <input matInput formControlName="SubsPlanName" required />
+          <mat-error *ngIf="planForm.get('SubsPlanName')?.invalid && planForm.get('SubsPlanName')?.touched">
+            Name is required (min 3 characters).
+          </mat-error>
+        </mat-form-field>
+      
+        <!-- Description -->
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Description</mat-label>
+          <textarea matInput formControlName="SubsPlanDescription" required></textarea>
+        </mat-form-field>
+      
+        <!-- Row: Price & Billing Period -->
+        <div class="same-custom-row">
+          <!-- Price Field with $ Prefix -->
+          <mat-form-field appearance="outline" class="price-form-field">
+            <mat-label>Price</mat-label>
+            <span matPrefix class="ps-2">$&nbsp;</span>
+            <input matInput type="number" formControlName="SubsPlanPrice" required />
+            <mat-error *ngIf="planForm.get('SubsPlanPrice')?.invalid && planForm.get('SubsPlanPrice')?.touched">
+              Price must be a positive number.
+            </mat-error>
+          </mat-form-field>
+      
+          <!-- Billing Period -->
+          <mat-form-field appearance="outline" class="period-form-field">
+            <mat-label>Billing Period</mat-label>
+            <mat-select formControlName="SubsPlanBillingPeriodId">
+              <mat-option *ngFor="let period of billingPeriods" [value]="period.id">
+                    {{period.name}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      
+        <!-- Active & Popular Checkboxes -->
+        <div class="checkbox-group">
+          <mat-checkbox formControlName="SubsPlanIsActive">Active</mat-checkbox>
+          <mat-checkbox formControlName="SubsPlanIsPopular">Popular</mat-checkbox>
+        </div>
+      
+        <!-- Designer Category -->
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Designer Category</mat-label>
+          <input matInput type="number" formControlName="SubsPlanDesignerCategory" required />
+        </mat-form-field>
+      
+        <!-- Dynamic Features List using mat-chip-set -->
+        <div class="feature-section">
+            <div class="top-label-section">
+                <label class="feature-label">Plan Features</label>
+          
+                <!-- Feature Input with Add Button -->
+                <div class="feature-input-container">
+                    <mat-form-field class="feature-input" appearance="outline">
+                      <mat-label>Add new feature</mat-label>
+                      <input matInput #featureInput />
+                    </mat-form-field>
+                    
+                    <button type="button" mat-flat-button color="primary" class="add-feature-btn" (click)="addFeature(featureInput)">
+                      Add
+                    </button>
+                  </div>
+                  
+            </div>
+          
+            <!-- Feature List -->
+            <div class="feature-list-container">
+              <div *ngFor="let feature of SubsPlanFeatures.controls; let i = index" class="feature-item">
+                <mat-checkbox class="feature-checkbox"  [checked]="true"></mat-checkbox>
+                <span class="feature-text">{{ feature.value }}</span>
+                <button type="button"  mat-icon-button color="warn" (click)="removeFeature(i)">
+                  <mat-icon>delete</mat-icon>
+                </button>
+              </div>
+            </div>
+          </div>
+          
+        <!-- <div>
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Add Feature</mat-label>
+            <input matInput #featureInput />
+            <button mat-icon-button matSuffix (click)="addFeature(featureInput)">
+              <mat-icon>add</mat-icon>
+            </button>
+          </mat-form-field>
+      
+          <mat-chip-set>
+            <mat-chip *ngFor="let feature of SubsPlanFeatures.controls; let i = index" removable (removed)="removeFeature(i)">
+              {{ feature.value }}
+              <mat-icon matChipRemove>close</mat-icon>
+            </mat-chip>
+          </mat-chip-set>
+        </div> -->
+      </form>
+      
+      
+</div>
+
+<div class="modal-footer">
+    <button mat-raised-button color="primary" type="submit" [disabled]="planForm.invalid" (click)="triggerSubmit()">Submit</button>
+    <button mat-button (click)="closeModal()">Cancel</button>
+  </div>

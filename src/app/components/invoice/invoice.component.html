@@ -1,0 +1,97 @@
+<div class="invoice-container" #invoice>
+    <div class="invoice-top-section">
+        <div class="agency-details">
+            <div class="logo-section">
+                <input type="file" (change)="onLogoUpload($event)" hidden #logoInput />
+                <img *ngIf="logoUrl" [src]="logoUrl" alt="Company Logo" class="logo-preview" (click)="logoInput.click()" />
+                <button *ngIf="!logoUrl" (click)="logoInput.click()">Upload Logo</button>
+              </div>
+              <h4 class="editable agency-name" contenteditable="true">{{invoiceData()?.AgencyInvoiceName}}</h4>
+              <div class="editable" contenteditable="true">{{invoiceData()?.AgencyInvoiceAddress}}</div>
+              <div class="editable" contenteditable="true">{{invoiceData()?.AgencyInvoiceContactNo}}</div>
+              <div class="editable" contenteditable="true">{{invoiceData()?.AgencyInvoiceEmail}}</div>
+              <div class="editable" contenteditable="true">{{invoiceData()?.AgencyInvoiceWebsite}}</div>
+        </div>
+        <div class="invoice-details">
+            <h2 contenteditable="true">INVOICE</h2>
+            <div>
+                <span>Invoice#: <span contenteditable="true">{{invoiceData()?.AgencyInvoiceFormatFormula}}</span></span>
+            </div>
+            <div>
+                <span>Invoice Date: <input type="date" [(ngModel)]="invoiceDate" class="borderless" /></span>
+            </div>
+            <div>
+                <span>Due Date: <input type="date" [(ngModel)]="dueDate" class="borderless" /></span>
+            </div>
+          </div>
+    </div>
+
+    <div class="bill-to-section">
+        <h6>Bill To:</h6>
+        <div class="editable" contenteditable="true">{{invoiceData()?.ClientName}}</div>
+        <div class="editable" contenteditable="true">{{invoiceData()?.ClientAddress}}</div>
+        <div class="client-phone editable-row">
+            <div class="row-label">Phone:</div>
+            <div class="editable" contenteditable="true">{{invoiceData()?.ClientContactNo}}</div>
+        </div>
+        <div class="client-email editable-row">
+            <div class="row-label">Email:</div>
+            <div class="editable" contenteditable="true">{{invoiceData()?.ClientEmail}}</div>
+        </div>
+    </div>
+    <div class="invoice-items-table">
+        <table>
+            <tr>
+              <th>Description</th>
+              <th>Quantity</th>
+              <th>Price</th>
+              <th>Discount (%)</th>
+              <th>Tax (%)</th>
+              <th>Total</th>
+              <th class="no-print">Action</th>
+            </tr>
+            <tr *ngFor="let item of items(); let i = index">
+              <td><input type="text" [(ngModel)]="item.description" class="borderless" /></td>
+              <td><input type="number" [(ngModel)]="item.quantity" (input)="updateTotal()" class="borderless" /></td>
+              <td><input type="number" [(ngModel)]="item.price" (input)="updateTotal()" class="borderless" /></td>
+              <td><input type="number" [(ngModel)]="item.discount" (input)="updateTotal()" class="borderless" /></td>
+              <td><input type="number" [(ngModel)]="item.tax" (input)="updateTotal()" class="borderless" /></td>
+              <td>{{ calculateItemTotal(item) | currency }}</td>
+              
+              <td class="remove-item no-print">
+                <button  (click)="removeItem(i)">
+                    <iconify-icon icon="material-symbols:delete-outline" width="24" height="24" style="color: red;">
+
+                    </iconify-icon>
+                </button>
+              </td>
+            </tr>
+          </table>
+    </div>
+    <button class="add-item no-print" (click)="addItem()">
+        <iconify-icon icon="material-symbols:add" width="24" height="24" style="color: #007bff;">
+
+        </iconify-icon>
+        Add Item
+    </button>
+    <div class="subtotal-section">
+        <div class="subtotal-row">
+            <div class="label-total">Subtotal</div>
+            <div class="label-value">{{subTotal() | currency}}</div>
+        </div>
+        <div class="subtotal-row">
+            <div class="label-total">Discount</div>
+            <div class="label-value">-{{discount() | currency}}</div>
+        </div>
+        <div class="subtotal-row">
+            <div class="label-total">Tax</div>
+            <div class="label-value">{{tax() | currency}}</div>
+        </div>
+        <hr>
+        <div class="total-row">
+            <div class="label-total">Total</div>
+            <div class="label-value">{{total() | currency}}</div>
+        </div>
+    </div>
+    <button class="no-print" (click)="downloadInvoice()">Download Invoice</button>
+  </div>

@@ -1,0 +1,21 @@
+export enum ModuleFMS {
+    Admin = 'Admin',
+    Master = 'Master',
+    Sales = "Sales",
+    CRM = "CRM",
+    Pricing = "Pricing",
+    Operations = "Operations",
+    Documentations = "Documentations",
+    Billing = "Billing",
+    Customs = "Customs",
+    Tracking = "Tracking",
+    Integrations = "Integrations",
+    Reports = "Reports",
+    MIS = "MIS",
+    Dashboard = "Dashboard",
+    Profile = "Profile",
+    Help = "Help",
+    Logout = "Logout",
+    Accounts = "Accounts",
+    MMDataShare = "Member-Member Data Share"
+}

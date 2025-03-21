@@ -1,0 +1,11 @@
+.modal-header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.full-width{
+    width: 100%;
+}
+.modal-header h2{
+    font-weight: bold;
+}

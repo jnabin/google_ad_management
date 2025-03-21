@@ -1,0 +1,25 @@
+{
+    "AgencyTeam": {
+        "titles": {
+            "teamManage": "Team Management"
+        },
+        "buttons":{
+            "addTeamMember": "Add Team Member"
+        },
+        "AgencyGrid": {
+            "titles": {
+                "view": "View"
+            },
+            "formFields": {
+                "gridSearchBox":{
+                    "placeholder": "Search team members..."
+                }
+            },
+            "tableColumns": {
+                "name": "Name",
+                "contact": "Contact",
+                "role": "Role"
+            }
+        }
+    }
+}

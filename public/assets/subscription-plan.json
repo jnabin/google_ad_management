@@ -1,0 +1,65 @@
+[
+    {
+      "SubsPlanId": 1,
+      "SubsPlanName": "Basic Plan",
+      "SubsPlanDescription": "A basic subscription plan for individuals.",
+      "SubsPlanPrice": 9.99,
+      "SubsPlanBillingPeriodId": 1,
+      "SubsPlanIsActive": true,
+      "SubsPlanIsPopular": false,
+      "SubsPlanDesignerCategory": 1,
+      "SubsPlanFeatures": [
+        "Access to basic features",
+        "Email Support",
+        "Limited API Requests"
+      ]
+    },
+    {
+      "SubsPlanId": 2,
+      "SubsPlanName": "Standard Plan",
+      "SubsPlanDescription": "A standard subscription plan with additional features.",
+      "SubsPlanPrice": 19.99,
+      "SubsPlanBillingPeriodId": 1,
+      "SubsPlanIsActive": true,
+      "SubsPlanIsPopular": true,
+      "SubsPlanDesignerCategory": 2,
+      "SubsPlanFeatures": [
+        "Unlimited API Requests",
+        "Priority Email Support",
+        "Access to Reports & Analytics"
+      ]
+    },
+    {
+      "SubsPlanId": 3,
+      "SubsPlanName": "Premium Plan",
+      "SubsPlanDescription": "A premium subscription plan offering advanced features.",
+      "SubsPlanPrice": 29.99,
+      "SubsPlanBillingPeriodId": 2,
+      "SubsPlanIsActive": true,
+      "SubsPlanIsPopular": true,
+      "SubsPlanDesignerCategory": 3,
+      "SubsPlanFeatures": [
+        "Unlimited Access",
+        "Priority Support",
+        "Advanced Analytics",
+        "Custom Branding"
+      ]
+    },
+    {
+      "SubsPlanId": 4,
+      "SubsPlanName": "Enterprise Plan",
+      "SubsPlanDescription": "An enterprise-level plan for large-scale businesses.",
+      "SubsPlanPrice": 99.99,
+      "SubsPlanBillingPeriodId": 3,
+      "SubsPlanIsActive": true,
+      "SubsPlanIsPopular": false,
+      "SubsPlanDesignerCategory": 4,
+      "SubsPlanFeatures": [
+        "Dedicated Account Manager",
+        "24/7 Support",
+        "Custom API Integrations",
+        "Advanced Security Features"
+      ]
+    }
+  ]
+  

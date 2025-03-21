@@ -1,0 +1,46 @@
+{
+  "gridList": [
+    {
+        "id": 1,
+        "category": "Basic",
+        "price": "$9.99",
+        "duration": "/month",
+        "desc": "Perfect for individuals getting started",
+        "featureList": [
+            "Single user",
+            "Basic features",
+            "Email support",
+            "Up to 3 projects"
+        ],
+        "isMostPopular": false
+    },
+    {
+        "id": 2,
+        "category": "Basic",
+        "price": "$9.99",
+        "duration": "/month",
+        "desc": "Perfect for individuals getting started",
+        "featureList": [
+            "Single user",
+            "Basic features",
+            "Email support",
+            "Up to 3 projects"
+        ],
+        "isMostPopular": false
+    },
+    {
+        "id": 3,
+        "category": "Basic",
+        "price": "$9.99",
+        "duration": "/month",
+        "desc": "Perfect for individuals getting started",
+        "featureList": [
+            "Single user",
+            "Basic features",
+            "Email support",
+            "Up to 3 projects"
+        ],
+        "isMostPopular": false
+    }
+  ]
+}

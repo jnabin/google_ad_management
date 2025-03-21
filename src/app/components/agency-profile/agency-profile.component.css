@@ -1,0 +1,126 @@
+.tabs {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .tabs button {
+    padding: 10px 15px;
+    border: none;
+    background: #eee;
+    cursor: pointer;
+  }
+  
+  .tabs button.active {
+    background: #007bff;
+    color: white;
+    font-weight: bold;
+  }
+  
+  .form-container {
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+  
+
+  .profile-card {
+    max-width: 100%;
+    padding: 24px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    background: #fff;
+  }
+  
+  mat-card-title {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  
+  mat-tab-group {
+    margin-top: 10px;
+    border-radius: 10px;
+  }
+  
+  mat-tab-label {
+    font-size: 16px;
+    font-weight: bold;
+  }
+  
+  mat-tab-body {
+    padding: 15px;
+    background: #fff;
+    border-radius: 10px;
+  }
+  
+  mat-tab-group {
+    flex-grow: 1; 
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* ✅ Prevents scrolling inside the tab body */
+  mat-tab-body-wrapper {
+    flex-grow: 1; 
+    overflow: hidden; /* ✅ Disables scrolling */
+  }
+  
+  /* ✅ Ensures tab content fills available space */
+  mat-tab-body {
+    height: 100%;
+    overflow: hidden; /* ✅ No scrolling */
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+  }
+  .cdk-overlay-pane {
+    overflow: hidden !important; /* ✅ Disables unwanted scrolling */
+  }
+  
+  ::ng-deep .mat-mdc-tab-body-content.mat-tab-body-content-can-animate{
+    overflow: hidden;
+  }
+
+  .tab-body-wrapper{
+    padding: 20px 10px;
+  }
+
+  .card-title{
+    text-align: left;
+    font-size: 1.25rem;
+  line-height: 1.75rem;
+  font-weight: 600;
+  color: rgb(17 24 39/1);
+  margin-bottom: 0px;
+  }
+  .card-sub-title{
+    color: gray;
+    padding-bottom: 10px;
+    font-size: .875rem;
+    line-height: 1.25rem;
+  }
+
+  .profile-card ::ng-deep .mat-mdc-tab-group.mat-mdc-tab-group-stretch-tabs>.mat-mdc-tab-header .mat-mdc-tab{
+    flex-grow: unset;
+  }
+
+  .profile-card ::ng-deep .mdc-tab.mat-mdc-tab.mat-focus-indicator.mdc-tab--active.mdc-tab-indicator--active{
+    background-color: white;
+  }
+
+  .profile-card-wrapper{
+    background-color: rgb(249 250 251);
+    padding: 24px;
+  }
+
+  .bg-gray-50{
+    background-color: white;
+    border: 1px solid rgb(229 231 235);
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .05);
+  }
+
+  ::ng-deep .mat-mdc-tab-labels .mdc-tab.mat-mdc-tab.mat-focus-indicator{
+    background-color:  rgb(243 244 246);
+  }
