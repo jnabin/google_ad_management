@@ -5,7 +5,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { SubscriptionPlanDto } from '../../models/subscription-plan';
 import { SubscriptionPlanFormComponent } from './subscription-plan-form/subscription-plan-form.component';
 import { SubscriptionPlanAdminService } from '../../services/subscription-plan-admin.service';
-import { TranslateModule } from '@ngx-translate/core';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-subscription-plan-admin',
@@ -23,7 +23,7 @@ export class SubscriptionPlanAdminComponent {
       {id: 2, name: "Quarterly"},
       {id: 3, name: "Annually"}
     ];
-  constructor(private modalService: NgbModal) {
+  constructor(private modalService: NgbModal, private translateService: TranslateService) {
     this.loadPlans();
   }
 
@@ -50,14 +50,21 @@ export class SubscriptionPlanAdminComponent {
   }
 
   processAction(eventData: {action: string, ele: SubscriptionPlanDto}){
+    console.log(eventData.action);
     if(eventData.action == 'delete'){
       this.planList.update(x =>  x.filter(y => y.SubsPlanId != eventData.ele.SubsPlanId));
       return;
     }
-    this.openModal(eventData.ele)
+    this.openModal(eventData.action, eventData.ele)
   }
 
-  openModal(element:SubscriptionPlanDto | null= null) {
+  openModal(mode: string, element:SubscriptionPlanDto | null= null) {
+    let title = this.translateService.instant("SubscriptionPlanAdmin.SubscriptionPlanForm.titles.newPlan"); 
+    if(mode == "update"){
+      title = this.translateService.instant("SubscriptionPlanAdmin.SubscriptionPlanForm.titles.editPlan"); 
+    } else if(mode == "view"){
+       title = this.translateService.instant("SubscriptionPlanAdmin.SubscriptionPlanForm.titles.viewPlan"); 
+    }
     const modalRef = this.modalService.open(SubscriptionPlanFormComponent,
        {
         size: 'lg',
@@ -65,9 +72,8 @@ export class SubscriptionPlanAdminComponent {
         keyboard: false
        }
       );
-      if(!element){
-        modalRef.componentInstance.title = 'New plan'
-      }
+      modalRef.componentInstance.mode = mode;
+      modalRef.componentInstance.title = title;
     modalRef.componentInstance.planData = element ? element : new SubscriptionPlanDto();
     modalRef.componentInstance.billingPeriods = this.billingPeriods;
     // modalRef.componentInstance.roles = this.roles;

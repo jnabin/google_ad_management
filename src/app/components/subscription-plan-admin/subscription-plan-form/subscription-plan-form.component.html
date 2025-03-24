@@ -65,10 +65,10 @@
                 <div class="feature-input-container">
                     <mat-form-field class="feature-input" appearance="outline">
                       <mat-label>Add new feature</mat-label>
-                      <input matInput #featureInput />
+                      <input [disabled]="mode == 'view'" matInput #featureInput />
                     </mat-form-field>
                     
-                    <button type="button" mat-flat-button color="primary" class="add-feature-btn" (click)="addFeature(featureInput)">
+                    <button type="button" [disabled]="mode == 'view'" mat-flat-button color="primary" class="add-feature-btn" (click)="addFeature(featureInput)">
                       Add
                     </button>
                   </div>
@@ -78,9 +78,9 @@
             <!-- Feature List -->
             <div class="feature-list-container">
               <div *ngFor="let feature of SubsPlanFeatures.controls; let i = index" class="feature-item">
-                <mat-checkbox class="feature-checkbox"  [checked]="true"></mat-checkbox>
+                <mat-checkbox [disabled]="mode == 'view'" class="feature-checkbox"  [checked]="true"></mat-checkbox>
                 <span class="feature-text">{{ feature.value }}</span>
-                <button type="button"  mat-icon-button color="warn" (click)="removeFeature(i)">
+                <button [disabled]="mode == 'view'" type="button"  mat-icon-button color="warn" (click)="removeFeature(i)">
                   <mat-icon>delete</mat-icon>
                 </button>
               </div>

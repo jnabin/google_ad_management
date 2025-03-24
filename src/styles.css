@@ -321,7 +321,15 @@ h1.text-2xl{
   border-spacing: 0;
 }
 
-::ng-deep .mat-mdc-notch-piece.mdc-notched-outline__trailing{
+.mat-mdc-notch-piece.mdc-notched-outline__trailing{
   --tw-border-opacity: 1;
   border-color: rgb(209 213 219/var(--tw-border-opacity));
+}
+
+.mdc-text-field--outlined.mdc-text-field--disabled .mdc-floating-label {
+  color: inherit !important;
+}
+.mat-mdc-checkbox.mat-mdc-checkbox-disabled label {
+  cursor: default;
+  color: inherit !important
 }

@@ -22,6 +22,7 @@ export class SubscriptionPlanFormComponent implements OnInit{
   billingPeriods: {id: number; name: string}[] = [];
   planForm!: FormGroup;
   title = 'Edit Plan';
+  mode: string = 'new';
   constructor(public activeModal: NgbActiveModal, private fb: FormBuilder) {
 
   }
@@ -38,8 +39,21 @@ export class SubscriptionPlanFormComponent implements OnInit{
       SubsPlanDesignerCategory: [this.planData?.SubsPlanDesignerCategory, Validators.required],
       SubsPlanFeatures: this.fb.array(this.planData?.SubsPlanFeatures ?? [], Validators.required) // Dynamic feature list
     });
+    if(this.mode == 'view'){
+      this.disableAllControls(this.planForm);
+    }
   }
-
+  disableAllControls(formGroup: FormGroup) {
+    Object.keys(formGroup.controls).forEach(key => {
+      const control = formGroup.get(key);
+      if (control instanceof FormGroup) {
+        // Recursively disable controls in FormGroup
+        this.disableAllControls(control);
+      } else {
+        control?.disable();
+      }
+    });
+  }
   get SubsPlanFeatures(): FormArray {
     return this.planForm.get('SubsPlanFeatures') as FormArray;
   }
