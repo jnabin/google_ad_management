@@ -3,10 +3,11 @@ import { Component, CUSTOM_ELEMENTS_SCHEMA, EventEmitter, Input, Output, signal 
 import { MatIconModule } from '@angular/material/icon';
 import {MatMenuModule} from '@angular/material/menu';
 import { SubscriptionPlanDto } from '../../../models/subscription-plan';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-plan-list-grid',
-  imports: [UpperCasePipe, NgFor, MatIconModule, MatMenuModule],
+  imports: [UpperCasePipe, NgFor, MatIconModule, MatMenuModule, TranslateModule],
   templateUrl: './plan-list-grid.component.html',
   styleUrl: './plan-list-grid.component.css',
   schemas: [CUSTOM_ELEMENTS_SCHEMA]

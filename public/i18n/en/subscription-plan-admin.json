@@ -1,5 +1,39 @@
 {
     "SubscriptionPlanAdmin": {
-        
+        "titles": {
+            "subscriptionPlanManagement": "Subscription Plans Management"
+        },
+        "buttons": {
+            "addNewPlan": "Add New Plan"
+        },
+        "PlanListGrid": {
+            "tableColumns": {
+                "planName": "Plan Name",
+                "price": "Price",
+                "status": "Status",
+                "action": "Action"
+            },
+            "buttons": {
+                "view": "View",
+                "edit": "Edit",
+                "delete": "Delete"
+            }
+        },
+        "SubscriptionPlanForm": {
+            "titles": {
+                "editPlan": "Edit Plan",
+                "newPlan": "New Plan",
+                "viewPlan": "View Plan"
+            },
+            "formFields": {
+                "planName": {
+                    "label": "Subscription Plan Name",
+                    "requiredMsg": "Name is required (min 3 characters)."
+                },
+                "description": {
+                    "label": "Description"
+                }
+            }
+        }
     }
 }

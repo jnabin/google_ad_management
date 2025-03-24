@@ -5,10 +5,11 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { SubscriptionPlanDto } from '../../models/subscription-plan';
 import { SubscriptionPlanFormComponent } from './subscription-plan-form/subscription-plan-form.component';
 import { SubscriptionPlanAdminService } from '../../services/subscription-plan-admin.service';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-subscription-plan-admin',
-  imports: [MatButtonModule, PlanListGridComponent],
+  imports: [MatButtonModule, PlanListGridComponent, TranslateModule],
   templateUrl: './subscription-plan-admin.component.html',
   styleUrl: './subscription-plan-admin.component.css',
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
@@ -64,17 +65,20 @@ export class SubscriptionPlanAdminComponent {
         keyboard: false
        }
       );
-      console.log(element);
+      if(!element){
+        modalRef.componentInstance.title = 'New plan'
+      }
     modalRef.componentInstance.planData = element ? element : new SubscriptionPlanDto();
     modalRef.componentInstance.billingPeriods = this.billingPeriods;
     // modalRef.componentInstance.roles = this.roles;
 
     modalRef.result.then(
-      (result) => {
+      (result: SubscriptionPlanDto) => {
         if (result) {
           // Save the data returned from the modal
           console.log('Data received from modal:', result);
-          //this.teamGridList.update(data => [...data, this.getGridDtoFromForm(result)])
+          result.CategoryName = this.billingPeriods.find(x => x.id == result.SubsPlanBillingPeriodId)?.name;
+          this.planList.update(data => [...data, result])
           // Optionally, save it via a service or further processing
         }
       },

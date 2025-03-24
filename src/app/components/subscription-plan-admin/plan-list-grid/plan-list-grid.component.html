@@ -4,10 +4,10 @@
             <table>
                 <thead class="bg-gray-50">
                     <tr>
-                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">{{'Plan Name' | uppercase}}</th>
-                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">{{'Price'  | uppercase}}</th>
-                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">{{'Status'  | uppercase}}</th>
-                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">{{'Action'  | uppercase}}</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">{{'SubscriptionPlanAdmin.PlanListGrid.tableColumns.planName' | translate | uppercase}}</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">{{'SubscriptionPlanAdmin.PlanListGrid.tableColumns.price'| translate  | uppercase}}</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">{{'SubscriptionPlanAdmin.PlanListGrid.tableColumns.status'| translate  | uppercase}}</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">{{'SubscriptionPlanAdmin.PlanListGrid.tableColumns.action'| translate | uppercase}}</th>
                     </tr>
                 </thead>
                 <tbody class="bg-white divide-y divide-gray-200">
@@ -27,7 +27,7 @@
                             </div>
                         </td>
                         <td class="px-6 py-4 whitespace-nowrap">
-                            <button class="status inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">{{'Active'}}</button>
+                            <button class="status inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">{{item.SubsPlanIsActive ? 'Active' : 'Deactive'}}</button>
                         </td>
                         <td class="px-6 py-4 whitespace-nowrap">
                             <button mat-icon-button [matMenuTriggerFor]="menu" class="action-btn" (click)="setSelectedRow(item)">
@@ -43,12 +43,12 @@
 
 <mat-menu #menu="matMenu">
     <button mat-menu-item (click)="viewItem(selectedRow)">
-      <mat-icon>visibility</mat-icon> View
+      <mat-icon>visibility</mat-icon> {{"SubscriptionPlanAdmin.PlanListGrid.buttons.view" | translate}}
     </button>
     <button mat-menu-item (click)="editItem(selectedRow)">
-      <mat-icon>edit</mat-icon> Edit
+      <mat-icon>edit</mat-icon>  {{"SubscriptionPlanAdmin.PlanListGrid.buttons.edit" | translate}}
     </button>
     <button mat-menu-item (click)="deleteItem(selectedRow)">
-      <mat-icon>delete</mat-icon> Delete
+      <mat-icon>delete</mat-icon> {{"SubscriptionPlanAdmin.PlanListGrid.buttons.delete" | translate}}
     </button>
   </mat-menu>

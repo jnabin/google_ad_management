@@ -66,11 +66,11 @@ export class SubscriptionPlanFormComponent implements OnInit{
   }
 
   triggerSubmit() {
-    // if (this.teamForm.valid) {
-    //   this.onSubmit();  // Call onSubmit directly
-    // } else {
-    //   this.teamForm.markAllAsTouched();  // Trigger validation
-    // }
+    if (this.planForm.valid) {
+      this.onSubmit();  // Call onSubmit directly
+    } else {
+      this.planForm.markAllAsTouched();  // Trigger validation
+    }
   }
 
   removeFeature(index: number) {
