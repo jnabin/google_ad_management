@@ -1,0 +1,43 @@
+<h5 mat-dialog-title>
+    {{'commonTable.Titles.editColumns' | translate}}
+    </h5>
+    <div mat-dialog-content>
+    
+      <div class="" style="height: 100%; min-width: 500px;">
+        <div class="font-weight-bold row">
+          <div class=" col-4">{{'commonTable.Titles.selection' | translate}}</div>
+          <div class=" col-6">{{'commonTable.Titles.columnName' | translate}}</div>
+          <div class=" col-2"></div>
+        </div>
+        <div class=" row align-items-center">
+          <div class=" col-4">
+            <mat-checkbox [checked]="allComplete" (change)="setAll($event.checked)" [indeterminate]="someComplete"
+            class="example-margin"></mat-checkbox>
+          </div>
+          <div class=" col-6">
+            <!-- <div class="text-muted ml-2">{{'commonTable.Titles.titleSelectAll' | translate}}</div> -->
+          </div>
+        </div>
+        <div class="columns-list mt-2" cdkDropList (cdkDropListDropped)="drop($event)">
+          <div *ngFor="let item of columns" cdkDrag [ngClass]="{'dark-theme': isInDarkTheme}" class="row-container row align-items-center">
+            <div class=" col-4">
+              <mat-checkbox  [disabled]="!item.IsEditable" [(ngModel)]="item.IsSelected" class="example-margin"></mat-checkbox>
+            </div>
+            <div class="col-6 font-weight-bold">
+              <div class=" ml-2">{{item.Title}}</div>
+            </div>
+            <div class="d-flex justify-content-end col-2">
+              <div cdkDragHandle style="cursor: move;">
+                <i class="fas fa-bars"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div mat-dialog-actions class="d-flex justify-content-end modal-footer">
+      <button class="btn btn-light" [mat-dialog-close]="null" cdkFocusInitial>{{'commonControls.buttons.btnCancel' | translate}}</button>
+      <button mat-button (click)="save()" class="btn btn-primary ml-2" >{{'commonControls.buttons.btnSubmit' | translate}}</button>
+    </div>
+    

@@ -5,7 +5,7 @@ import { routes } from './app.routes';
 import { HttpClient, provideHttpClient } from '@angular/common/http';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { CustomTranslateLoader } from './loaders/custom-translate-loader';
-import { ActiveModuleService } from './commonm/services/active-module.service';
+import { ActiveModuleService } from './common/services/active-module.service';
 
 export const appConfig: ApplicationConfig = {
   providers: [

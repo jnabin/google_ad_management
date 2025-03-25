@@ -49,13 +49,13 @@ export class SubscriptionPlanAdminComponent {
     })
   }
 
-  processAction(eventData: {action: string, ele: SubscriptionPlanDto}){
+  processAction(eventData: {action: string, data: SubscriptionPlanDto}){
     console.log(eventData.action);
     if(eventData.action == 'delete'){
-      this.planList.update(x =>  x.filter(y => y.SubsPlanId != eventData.ele.SubsPlanId));
+      this.planList.update(x =>  x.filter(y => y.SubsPlanId != eventData.data.SubsPlanId));
       return;
     }
-    this.openModal(eventData.action, eventData.ele)
+    this.openModal(eventData.action, eventData.data)
   }
 
   openModal(mode: string, element:SubscriptionPlanDto | null= null) {

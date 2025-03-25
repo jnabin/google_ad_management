@@ -2,7 +2,7 @@ import { Injectable, signal } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { CustomTranslateLoader } from '../loaders/custom-translate-loader';
 import { HttpClient } from '@angular/common/http';
-import { ActiveModuleService } from '../commonm/services/active-module.service';
+import { ActiveModuleService } from '../common/services/active-module.service';
 
 @Injectable({
   providedIn: 'root'

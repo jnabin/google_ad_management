@@ -3,7 +3,7 @@ import { inject, Injectable } from '@angular/core';
 import { TranslateLoader, TranslationObject } from '@ngx-translate/core';
 import { catchError, forkJoin, map, Observable, of, tap } from 'rxjs';
 import { TranslationService } from '../services/translation.service';
-import { ActiveModuleService } from '../commonm/services/active-module.service';
+import { ActiveModuleService } from '../common/services/active-module.service';
 
 @Injectable({
   providedIn: 'root' // Ensure it's provided in root

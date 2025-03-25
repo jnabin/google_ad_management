@@ -1,0 +1,8 @@
+<app-common-table [canDelete]="true" [canEdit]="true" [canView]="true" [canCreate]="true"
+                              [canDuplicate]="false" [type]="'Upload_Contract_1'" [enableSort]="true" [showActions]="true"
+                              [enableSearch]="true" [showColumnReOrderButton]="true" [enablePagination]="true"
+                              [columns]="subscriptionColumnModel"
+                              [data]="planList()"  [enableHorizontalScroll]="true"
+                              (view)="processAction($event)" (edit)="processAction($event)"
+                              (delete)="processAction($event)" (actionMenuClicked)="foo($event)" (create)="openModal('new')">
+            </app-common-table>

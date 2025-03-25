@@ -42,7 +42,13 @@ export const routes: Routes = [
                 loadComponent: () => import('./components/subscription-plan-admin/subscription-plan-admin.component').then(x => x.SubscriptionPlanAdminComponent),
                 data: {module: 'subscription-plan-admin'},
                 resolve: {translations: TranslationResolver}
-            }
+            },
+            {
+                path: 'subscription-plan-admin-new',
+                loadComponent: () => import('./components/subscription-plan-admin-new/subscription-plan-admin-new.component').then(x => x.SubscriptionPlanAdminNewComponent),
+                data: {module: 'subscription-plan-admin-new'},
+                resolve: {translations: TranslationResolver}
+            },
         ]
     }
 ];

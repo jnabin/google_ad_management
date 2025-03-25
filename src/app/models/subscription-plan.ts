@@ -13,5 +13,6 @@ export class SubscriptionPlanDto{
     public SubsPlanIsPopular!: boolean;
     public SubsPlanDesignerCategory!: number;
     public CategoryName?: string;
+    public StatusName?: string;
     public SubsPlanFeatures!: string[];
 }
