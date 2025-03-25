@@ -58,8 +58,11 @@
       
         <!-- Dynamic Features List using mat-chip-set -->
         <div class="feature-section">
-            <div class="top-label-section">
-                <label class="feature-label">Plan Features</label>
+            <div class="toggle-custom-feature mb-3">
+              <mat-slide-toggle [disabled]="mode == 'view'" [checked]="isCustomFeatures()" (change)="toggleChange($event)">Custom Features</mat-slide-toggle>
+            </div>
+            <div *ngIf="isCustomFeatures()" class="top-label-section">
+                <label class="feature-label">Custom Features</label>
           
                 <!-- Feature Input with Add Button -->
                 <div class="feature-input-container">
@@ -74,12 +77,29 @@
                   </div>
                   
             </div>
+            <div [hidden]="isCustomFeatures()" class="same-custom-row defined-feature-control">
+              <mat-form-field appearance="outline">
+                <mat-label>Select</mat-label>
+                <mat-select formControlName="CurrentFeatureId">
+                  <mat-option *ngFor="let feature of subscriptionPlanFeatures" [value]="feature.id">
+                        {{feature.name}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+              <mat-form-field appearance="outline">
+                <mat-label>Value</mat-label>
+                <input matInput type="number" formControlName="CurrentFeatureValue" />
+              </mat-form-field>
+              <button type="button" [disabled]="mode == 'view'" mat-flat-button color="primary" class="add-feature-btn" (click)="addPredefinedFeature({SubsPlanFeatureId: SubsPlanFeaturesId, SubsPlanFeatureValue: SubsPlanFeaturesValue})">
+                Add
+              </button>
+            </div>
           
             <!-- Feature List -->
             <div class="feature-list-container">
               <div *ngFor="let feature of SubsPlanFeatures.controls; let i = index" class="feature-item">
                 <mat-checkbox [disabled]="mode == 'view'" class="feature-checkbox"  [checked]="true"></mat-checkbox>
-                <span class="feature-text">{{ feature.value }}</span>
+                <span class="feature-text">{{ feature.value.SubsPlanFeatureName }}</span>
                 <button [disabled]="mode == 'view'" type="button"  mat-icon-button color="warn" (click)="removeFeature(i)">
                   <mat-icon>delete</mat-icon>
                 </button>

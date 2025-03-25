@@ -324,3 +324,19 @@
     cursor: col-resize;
     background-color: white !important;
 }
+
+::ng-deep tr.mat-mdc-row, tr.mat-mdc-footer-row, .mat-menu-item {
+    min-height: 40px !important;
+    height: 40px !important;
+}
+::ng-deep tr.mat-mdc-header-row {
+    height: 36px !important;
+    padding: 1px 0 !important;
+}
+::ng-deep .mat-mdc-header-cell{
+    border-bottom-color: #0000001f;
+    border-bottom-width: 0px !important;
+}
+::ng-deep th.mat-mdc-header-cell {
+    color: #2f4f4f !important;
+}

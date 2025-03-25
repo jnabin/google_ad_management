@@ -15,14 +15,14 @@
     <button mat-menu-item data-toggle="tooltip" data-placement="bottom" title="View" (click)="selectData(selected)"
             *ngIf="canSelect">
       <!-- <img class="vector" src="assets/images/logos/group-6025-9.svg" /> -->
-      <span class="fa fa-check text-primary fa-fw mr-1"></span>
+      <span class="fa fa-check text-primary fa-fw me-1"></span>
       {{BASE_LANG + '.Buttons.btnSelect' | translate}}
     </button>
   
     <button mat-menu-item data-toggle="tooltip" data-placement="bottom" title="Edit" (click)="editData(selected)"
             *ngIf="canEdit">
       <!-- <img class="vector" src="assets/images/logos/vector-2.svg" /> -->
-      <span class="fa fa-edit text-primary fa-fw mr-1"></span>
+      <span class="fa fa-edit text-primary fa-fw me-1"></span>
       {{BASE_LANG + '.Buttons.editBtn' | translate}}
   
     </button>
@@ -30,7 +30,7 @@
     <button mat-menu-item data-toggle="tooltip" data-placement="bottom" title="View" (click)="viewData(selected)"
             *ngIf="canView">
       <!-- <img class="vector" src="assets/images/logos/group-6025-9.svg" /> -->
-      <span class="fa fa-eye text-primary fa-fw mr-1"></span>
+      <span class="fa fa-eye text-primary fa-fw me-1"></span>
       {{BASE_LANG + '.Buttons.btnView' | translate}}
   
     </button>
@@ -38,7 +38,7 @@
     <button mat-menu-item data-toggle="tooltip" data-placement="bottom" title="Download as PDF" (click)="downloadPdfData(selected)"
             *ngIf="canDownloadPdf">
       <!-- <img class="vector" src="assets/images/logos/group-6025-9.svg" /> -->
-      <span class="fa fa-cloud-download text-primary fa-fw mr-1"></span>
+      <span class="fa fa-cloud-download text-primary fa-fw me-1"></span>
       {{BASE_LANG + '.Buttons.btnDownload' | translate}}
   
     </button>
@@ -54,28 +54,28 @@
     <button mat-menu-item data-toggle="tooltip" data-placement="bottom" title="Create shipment"
             (click)="generateData(selected)" *ngIf="canGenerate">
       <!-- <img class="vector" src="assets/images/logos/duplicate.png" /> -->
-      <span class="fa fa-clone text-warning fa-fw mr-1"></span>
+      <span class="fa fa-clone text-warning fa-fw me-1"></span>
       Create shipment
     </button>
   
     <button mat-menu-item data-toggle="tooltip" data-placement="bottom" title="Delete" (click)="deleteData(selected)"
             *ngIf="canDelete">
       <!-- <img class="vector" src="assets/images/logos/vector-97.svg" /> -->
-      <span class="fa fa-trash text-danger fa-fw mr-1"></span>
+      <span class="fa fa-trash text-danger fa-fw me-1"></span>
       {{BASE_LANG + '.Buttons.btnDelete' | translate}}
   
     </button>
   
     <button mat-menu-item data-toggle="tooltip" data-placement="bottom" title="Duplicate"
             (click)="emailResend(selected)" *ngIf="canResendEmail">
-      <span class="fa fa-retweet text-primary fa-fw mr-1"></span>
+      <span class="fa fa-retweet text-primary fa-fw me-1"></span>
       {{BASE_LANG + '.Buttons.resendEmail' | translate}}
     </button>
   
     <a mat-menu-item data-toggle="tooltip" data-placement="bottom" title="Download" [href]="selected.Url" target="_blank"
        *ngIf="canDownload && selected" class="tb-download" download>
       <!-- <i class="fas fa-cloud-download"></i> -->
-      <span class="fas fa-cloud-download mr-1"></span>
+      <span class="fas fa-cloud-download me-1"></span>
       {{BASE_LANG + '.Buttons.btnDownload' | translate}}
     </a>
   
@@ -86,8 +86,8 @@
   
     <button mat-menu-item *ngIf="showActiveAction && selected" data-toggle="tooltip" data-placement="bottom"
             [title]="selected[activePropName] == true? 'De-active': 'Active'" (click)="toggleStatus(selected)">
-      <span *ngIf="!selected[activePropName]"><i class="far fa-check-circle text-success mr-1"></i> {{BASE_LANG + '.Buttons.btnActivate' | translate}}</span>
-      <span *ngIf="selected[activePropName]"><i class="far fa-times-circle text-danger mr-1"></i> {{BASE_LANG + '.Buttons.btnDeactivate' | translate}}</span>
+      <span *ngIf="!selected[activePropName]"><i class="far fa-check-circle text-success me-1"></i> {{BASE_LANG + '.Buttons.btnActivate' | translate}}</span>
+      <span *ngIf="selected[activePropName]"><i class="far fa-times-circle text-danger me-1"></i> {{BASE_LANG + '.Buttons.btnDeactivate' | translate}}</span>
     </button>
   
   
@@ -109,7 +109,7 @@
   <div *ngIf="!minimizeTopSection" class="d-flex justify-content-between">
     <div class=" d-flex align-items-center">
       <div class="cmn-title text-primary" *ngIf="title && fromportalActivity">{{title}}</div>
-      <mat-spinner class=" ml-2" *ngIf="loading" [strokeWidth]="3" [diameter]="30" [color]="'primary'"></mat-spinner>
+      <mat-spinner class=" ms-2" *ngIf="loading" [strokeWidth]="3" [diameter]="30" [color]="'primary'"></mat-spinner>
     </div>
   </div>
   
@@ -146,17 +146,17 @@
       <div class="d-flex">
         <button class="btn btn-primary" [disabled]="disableAddButton" (click)="newData()"
           *ngIf="canCreate && !isCreateMenu">
-          <i class="fa fa-plus" aria-hidden="true"></i><span class="ml-2">{{createNewBtnString ? createNewBtnString : (BASE_LANG + '.Buttons.createNewBtn' |
+          <i class="fa fa-plus" aria-hidden="true"></i><span class="ms-2">{{createNewBtnString ? createNewBtnString : (BASE_LANG + '.Buttons.createNewBtn' |
             translate)}}</span>
         </button>
         <button class="btn btn-primary" (click)="newData()" [matMenuTriggerFor]="createActionMenu"
           *ngIf="canCreate && isCreateMenu">
-          <i class="fa fa-plus" aria-hidden="true"></i><span class="ml-2">
+          <i class="fa fa-plus" aria-hidden="true"></i><span class="ms-2">
             {{BASE_LANG + '.Buttons.createNewBtn' | translate: {Default: 'modules.Others.commonTable.Buttons.createNewBtn' | translate} }}
           </span>
         </button>
   
-        <button class="btn btn-primary ml-2 mr-1" [disabled]="disableImportButton" (click)="importData()"
+        <button class="btn btn-primary ms-2 me-1" [disabled]="disableImportButton" (click)="importData()"
           *ngIf="showImportButton">
           <i class="fa fa-file-excel-o" aria-hidden="true"></i> &nbsp;&nbsp; <span>{{BASE_LANG + '.Buttons.importData' |
             translate}}</span>

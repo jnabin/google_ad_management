@@ -14,5 +14,12 @@ export class SubscriptionPlanDto{
     public SubsPlanDesignerCategory!: number;
     public CategoryName?: string;
     public StatusName?: string;
-    public SubsPlanFeatures!: string[];
+    public SubsPlanFeatures!: SubscriptionPlanFeatureDto[];
+}
+
+export class SubscriptionPlanFeatureDto{
+    public SubsPlanFeatureId !: number;
+    public SubsPlanFeatureName !: string;
+    public SubsPlanFeatureType? : string;
+    public SubsPlanFeatureValue !: number;
 }
