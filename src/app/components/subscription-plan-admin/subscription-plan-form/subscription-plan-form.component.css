@@ -1,6 +1,5 @@
 .full-width {
     width: 100%;
-    margin-bottom: 15px;
   }
   .modal-header{
     display: flex;
@@ -17,11 +16,11 @@
 .same-custom-row{
     display: flex;
     align-items: center;
+    gap: 20px;
 }
   
   .half-width {
     width: 48%;
-    margin-bottom: 15px;
   }
   
   .row {
@@ -98,10 +97,10 @@
 .feature-input-container {
     display: flex;
     width: 100%;
-    max-width: 400px; /* Adjust width */
-    border-radius: 0px;
+    justify-content: space-between;
     overflow: hidden;
     background: white;
+    gap: 20px;
   }
   
   /* Material Form Field */
@@ -141,7 +140,7 @@
     font-weight: bold;
     background-color: #2563eb; /* Blue button */
     color: white;
-    height: 56px;
+    height: 40px;
     border-top-right-radius: 0.2rem;
     border-bottom-right-radius: 0.2rem;
   }
@@ -165,4 +164,25 @@
 .defined-feature-control mat-form-field{
   flex-grow: 1;
 }
+::ng-deep .mat-mdc-form-field-infix {
+  min-height: 40px !important;
+  height: 40px !important;
+  padding: 0px !important;
+  display: flex;
+  align-items: center;
+}
   
+::ng-deep .mat-mdc-notch-piece{
+  display: flex;
+}
+::ng-deep .mdc-floating-label{
+  overflow: visible !important;
+}
+
+::ng-deep .mat-mdc-form-field-textarea-control{
+  padding-top: 20px;
+}
+
+.no-resize {
+  resize: none;
+}

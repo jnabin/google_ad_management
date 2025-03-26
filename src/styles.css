@@ -1,4 +1,19 @@
 
+@font-face {
+  font-family: 'Arcon';
+  src: url('/assets/fonts/Arcon-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Arcon Rounded';
+  src: url('/assets/fonts/Arcon-Rounded-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
 
 html, body { height: 100vh; overflow-y: hidden; }
 body { 
@@ -332,4 +347,15 @@ h1.text-2xl{
 .mat-mdc-checkbox.mat-mdc-checkbox-disabled label {
   cursor: default;
   color: inherit !important
+}
+
+body, * {
+	font-family: "Arcon", Arial, Helvetica, sans-serif;
+}
+.mat-mdc-text-field-wrapper{
+  max-height: 40px;
+}
+
+.mdc-switch__track::before, .mdc-switch__track::after{
+  border: none !important;
 }

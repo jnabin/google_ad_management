@@ -1,4 +1,4 @@
-import { Component, OnInit, signal } from '@angular/core';
+import { Component, inject, OnInit, signal } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import {
@@ -14,17 +14,21 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatIconModule } from '@angular/material/icon';
-import { NgFor, NgIf } from '@angular/common';
+import { CommonModule, NgFor, NgIf } from '@angular/common';
 import {
   MatSlideToggleChange,
   MatSlideToggleModule,
 } from '@angular/material/slide-toggle';
+import { ToastService } from '../../../common/services/toast.service';
+import { ToastrModule } from 'ngx-toastr';
 
 @Component({
   selector: 'app-subscription-plan-form',
@@ -32,9 +36,8 @@ import {
     MatIconModule,
     MatSlideToggleModule,
     FormsModule,
-    NgIf,
-    NgFor,
     MatButtonModule,
+    CommonModule,
     ReactiveFormsModule,
     MatCheckboxModule,
     MatFormFieldModule,
@@ -53,6 +56,11 @@ export class SubscriptionPlanFormComponent implements OnInit {
     name: string;
     type: string;
   }[] = [];
+  featureBooleanList = [
+    {id: 1, name: 'True'},
+    {id: 2, name: 'False'}
+  ];
+  toastService = inject(ToastService);
   planForm!: FormGroup;
   title = 'Edit Plan';
   mode: string = 'new';
@@ -111,8 +119,11 @@ export class SubscriptionPlanFormComponent implements OnInit {
     return this.planForm.get('SubsPlanFeatures') as FormArray;
   }
 
-  get SubsPlanFeaturesId(): FormArray {
+  get SubsPlanFeaturesId(): any {
     return (this.planForm.get('CurrentFeatureId') as FormControl).value;
+  }
+  get SelectedFeatureType(): string | any{
+    return this.subscriptionPlanFeatures.find(x => x.id == this.SubsPlanFeaturesId)?.type;
   }
   get SubsPlanFeaturesValue(): FormArray {
     return (this.planForm.get('CurrentFeatureValue') as FormControl).value;
@@ -144,6 +155,10 @@ export class SubscriptionPlanFormComponent implements OnInit {
       plan.SubsPlanFeatureValue = value.SubsPlanFeatureValue;
       plan.SubsPlanFeatureType = this.subscriptionPlanFeatures.find(x => x.id == value.SubsPlanFeatureId)?.type;
       this.SubsPlanFeatures.push(this.fb.control(plan));
+    } else {
+      this.planForm.get('CurrentFeatureId')?.setValue(null);
+      this.planForm.get('CurrentFeatureValue')?.setValue(null);
+      this.toastService.showMessage("warning", "Plan already selected");
     }
   }
 

@@ -18,7 +18,10 @@
         <!-- Description -->
         <mat-form-field appearance="outline" class="full-width">
           <mat-label>Description</mat-label>
-          <textarea matInput formControlName="SubsPlanDescription" required></textarea>
+          <input matInput formControlName="SubsPlanDescription" required />
+          <mat-error *ngIf="planForm.get('SubsPlanDescription')?.invalid && planForm.get('SubsPlanDescription')?.touched">
+            Description is required
+          </mat-error>
         </mat-form-field>
       
         <!-- Row: Price & Billing Period -->
@@ -62,7 +65,7 @@
               <mat-slide-toggle [disabled]="mode == 'view'" [checked]="isCustomFeatures()" (change)="toggleChange($event)">Custom Features</mat-slide-toggle>
             </div>
             <div *ngIf="isCustomFeatures()" class="top-label-section">
-                <label class="feature-label">Custom Features</label>
+                <!-- <label class="feature-label">Custom Features</label> -->
           
                 <!-- Feature Input with Add Button -->
                 <div class="feature-input-container">
@@ -86,9 +89,17 @@
                   </mat-option>
                 </mat-select>
               </mat-form-field>
-              <mat-form-field appearance="outline">
+              <mat-form-field appearance="outline" *ngIf="!SelectedFeatureType || SelectedFeatureType == 'numerical'">
                 <mat-label>Value</mat-label>
                 <input matInput type="number" formControlName="CurrentFeatureValue" />
+              </mat-form-field>
+              <mat-form-field appearance="outline" *ngIf="SelectedFeatureType && SelectedFeatureType == 'boolean'">
+                <mat-label>Select Type</mat-label>
+                <mat-select formControlName="CurrentFeatureValue">
+                  <mat-option *ngFor="let type of featureBooleanList" [value]="type.id">
+                        {{type.name}}
+                  </mat-option>
+                </mat-select>
               </mat-form-field>
               <button type="button" [disabled]="mode == 'view'" mat-flat-button color="primary" class="add-feature-btn" (click)="addPredefinedFeature({SubsPlanFeatureId: SubsPlanFeaturesId, SubsPlanFeatureValue: SubsPlanFeaturesValue})">
                 Add
@@ -100,6 +111,7 @@
               <div *ngFor="let feature of SubsPlanFeatures.controls; let i = index" class="feature-item">
                 <mat-checkbox [disabled]="mode == 'view'" class="feature-checkbox"  [checked]="true"></mat-checkbox>
                 <span class="feature-text">{{ feature.value.SubsPlanFeatureName }}</span>
+                <span class="feature-text">{{ feature.value.SubsPlanFeatureValue }}</span>
                 <button [disabled]="mode == 'view'" type="button"  mat-icon-button color="warn" (click)="removeFeature(i)">
                   <mat-icon>delete</mat-icon>
                 </button>
