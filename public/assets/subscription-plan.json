@@ -1,65 +1,468 @@
 [
-    {
-      "SubsPlanId": 1,
-      "SubsPlanName": "Basic Plan",
-      "SubsPlanDescription": "A basic subscription plan for individuals.",
-      "SubsPlanPrice": 9.99,
-      "SubsPlanBillingPeriodId": 1,
-      "SubsPlanIsActive": true,
-      "SubsPlanIsPopular": false,
-      "SubsPlanDesignerCategory": 1,
-      "SubsPlanFeatures": [
-        "Access to basic features",
-        "Email Support",
-        "Limited API Requests"
-      ]
-    },
-    {
-      "SubsPlanId": 2,
-      "SubsPlanName": "Standard Plan",
-      "SubsPlanDescription": "A standard subscription plan with additional features.",
-      "SubsPlanPrice": 19.99,
-      "SubsPlanBillingPeriodId": 1,
-      "SubsPlanIsActive": true,
-      "SubsPlanIsPopular": true,
-      "SubsPlanDesignerCategory": 2,
-      "SubsPlanFeatures": [
-        "Unlimited API Requests",
-        "Priority Email Support",
-        "Access to Reports & Analytics"
-      ]
-    },
-    {
-      "SubsPlanId": 3,
-      "SubsPlanName": "Premium Plan",
-      "SubsPlanDescription": "A premium subscription plan offering advanced features.",
-      "SubsPlanPrice": 29.99,
-      "SubsPlanBillingPeriodId": 2,
-      "SubsPlanIsActive": true,
-      "SubsPlanIsPopular": true,
-      "SubsPlanDesignerCategory": 3,
-      "SubsPlanFeatures": [
-        "Unlimited Access",
-        "Priority Support",
-        "Advanced Analytics",
-        "Custom Branding"
-      ]
-    },
-    {
-      "SubsPlanId": 4,
-      "SubsPlanName": "Enterprise Plan",
-      "SubsPlanDescription": "An enterprise-level plan for large-scale businesses.",
-      "SubsPlanPrice": 99.99,
-      "SubsPlanBillingPeriodId": 3,
-      "SubsPlanIsActive": true,
-      "SubsPlanIsPopular": false,
-      "SubsPlanDesignerCategory": 4,
-      "SubsPlanFeatures": [
-        "Dedicated Account Manager",
-        "24/7 Support",
-        "Custom API Integrations",
-        "Advanced Security Features"
-      ]
-    }
-  ]
-  
+  {
+    "SubsPlanId": 1,
+    "SubsPlanName": "Basic Plan",
+    "SubsPlanDescription": "This is a basic subscription plan.",
+    "SubsPlanPrice": 19.99,
+    "SubsPlanBillingPeriodId": 1,
+    "SubsPlanIsActive": true,
+    "SubsPlanIsPopular": false,
+    "SubsPlanDesignerCategory": 1,
+    "CategoryName": "Basic",
+    "StatusName": "Active",
+    "SubsPlanFeatures": [
+      {
+        "SubsPlanFeatureId": 1,
+        "SubsPlanFeatureName": "Storage",
+        "SubsPlanFeatureType": "numerical",
+        "SubsPlanFeatureValue": 10
+      },
+      {
+        "SubsPlanFeatureId": 2,
+        "SubsPlanFeatureName": "Support",
+        "SubsPlanFeatureType": "boolean",
+        "SubsPlanFeatureValue": 1
+      }
+    ]
+  },
+  {
+    "SubsPlanId": 2,
+    "SubsPlanName": "Standard Plan",
+    "SubsPlanDescription": "This plan offers more storage and support features.",
+    "SubsPlanPrice": 29.99,
+    "SubsPlanBillingPeriodId": 1,
+    "SubsPlanIsActive": true,
+    "SubsPlanIsPopular": false,
+    "SubsPlanDesignerCategory": 1,
+    "CategoryName": "Standard",
+    "StatusName": "Active",
+    "SubsPlanFeatures": [
+      {
+        "SubsPlanFeatureId": 3,
+        "SubsPlanFeatureName": "Storage",
+        "SubsPlanFeatureType": "numerical",
+        "SubsPlanFeatureValue": 50
+      },
+      {
+        "SubsPlanFeatureId": 4,
+        "SubsPlanFeatureName": "Support",
+        "SubsPlanFeatureType": "boolean",
+        "SubsPlanFeatureValue": 1
+      }
+    ]
+  },
+  {
+    "SubsPlanId": 3,
+    "SubsPlanName": "Premium Plan",
+    "SubsPlanDescription": "Premium features with more storage and priority support.",
+    "SubsPlanPrice": 49.99,
+    "SubsPlanBillingPeriodId": 2,
+    "SubsPlanIsActive": true,
+    "SubsPlanIsPopular": true,
+    "SubsPlanDesignerCategory": 2,
+    "CategoryName": "Premium",
+    "StatusName": "Active",
+    "SubsPlanFeatures": [
+      {
+        "SubsPlanFeatureId": 5,
+        "SubsPlanFeatureName": "Storage",
+        "SubsPlanFeatureType": "numerical",
+        "SubsPlanFeatureValue": 100
+      },
+      {
+        "SubsPlanFeatureId": 6,
+        "SubsPlanFeatureName": "Priority Support",
+        "SubsPlanFeatureType": "boolean",
+        "SubsPlanFeatureValue": 1
+      }
+    ]
+  },
+  {
+    "SubsPlanId": 4,
+    "SubsPlanName": "Enterprise Plan",
+    "SubsPlanDescription": "Enterprise-level plan with advanced features.",
+    "SubsPlanPrice": 99.99,
+    "SubsPlanBillingPeriodId": 2,
+    "SubsPlanIsActive": true,
+    "SubsPlanIsPopular": false,
+    "SubsPlanDesignerCategory": 3,
+    "CategoryName": "Enterprise",
+    "StatusName": "Active",
+    "SubsPlanFeatures": [
+      {
+        "SubsPlanFeatureId": 7,
+        "SubsPlanFeatureName": "Storage",
+        "SubsPlanFeatureType": "numerical",
+        "SubsPlanFeatureValue": 1000
+      },
+      {
+        "SubsPlanFeatureId": 8,
+        "SubsPlanFeatureName": "Priority Support",
+        "SubsPlanFeatureType": "boolean",
+        "SubsPlanFeatureValue": 1
+      },
+      {
+        "SubsPlanFeatureId": 9,
+        "SubsPlanFeatureName": "Custom Branding",
+        "SubsPlanFeatureType": "boolean",
+        "SubsPlanFeatureValue": 1
+      }
+    ]
+  },
+  {
+    "SubsPlanId": 5,
+    "SubsPlanName": "Pro Plan",
+    "SubsPlanDescription": "Professional plan with priority support and custom branding.",
+    "SubsPlanPrice": 69.99,
+    "SubsPlanBillingPeriodId": 2,
+    "SubsPlanIsActive": true,
+    "SubsPlanIsPopular": false,
+    "SubsPlanDesignerCategory": 2,
+    "CategoryName": "Professional",
+    "StatusName": "Active",
+    "SubsPlanFeatures": [
+      {
+        "SubsPlanFeatureId": 10,
+        "SubsPlanFeatureName": "Storage",
+        "SubsPlanFeatureType": "numerical",
+        "SubsPlanFeatureValue": 200
+      },
+      {
+        "SubsPlanFeatureId": 11,
+        "SubsPlanFeatureName": "Priority Support",
+        "SubsPlanFeatureType": "boolean",
+        "SubsPlanFeatureValue": 1
+      },
+      {
+        "SubsPlanFeatureId": 12,
+        "SubsPlanFeatureName": "Custom Branding",
+        "SubsPlanFeatureType": "boolean",
+        "SubsPlanFeatureValue": 1
+      }
+    ]
+  },
+  {
+    "SubsPlanId": 6,
+    "SubsPlanName": "Starter Plan",
+    "SubsPlanDescription": "A simple and affordable plan for small users.",
+    "SubsPlanPrice": 9.99,
+    "SubsPlanBillingPeriodId": 1,
+    "SubsPlanIsActive": true,
+    "SubsPlanIsPopular": false,
+    "SubsPlanDesignerCategory": 1,
+    "CategoryName": "Starter",
+    "StatusName": "Active",
+    "SubsPlanFeatures": [
+      {
+        "SubsPlanFeatureId": 13,
+        "SubsPlanFeatureName": "Storage",
+        "SubsPlanFeatureType": "numerical",
+        "SubsPlanFeatureValue": 5
+      }
+    ]
+  },
+  {
+    "SubsPlanId": 7,
+    "SubsPlanName": "Ultimate Plan",
+    "SubsPlanDescription": "The ultimate plan with all features included.",
+    "SubsPlanPrice": 199.99,
+    "SubsPlanBillingPeriodId": 3,
+    "SubsPlanIsActive": true,
+    "SubsPlanIsPopular": true,
+    "SubsPlanDesignerCategory": 4,
+    "CategoryName": "Ultimate",
+    "StatusName": "Active",
+    "SubsPlanFeatures": [
+      {
+        "SubsPlanFeatureId": 14,
+        "SubsPlanFeatureName": "Storage",
+        "SubsPlanFeatureType": "numerical",
+        "SubsPlanFeatureValue": 5000
+      },
+      {
+        "SubsPlanFeatureId": 15,
+        "SubsPlanFeatureName": "Priority Support",
+        "SubsPlanFeatureType": "boolean",
+        "SubsPlanFeatureValue": 1
+      },
+      {
+        "SubsPlanFeatureId": 16,
+        "SubsPlanFeatureName": "Custom Branding",
+        "SubsPlanFeatureType": "boolean",
+        "SubsPlanFeatureValue": 1
+      },
+      {
+        "SubsPlanFeatureId": 17,
+        "SubsPlanFeatureName": "Custom API Access",
+        "SubsPlanFeatureType": "boolean",
+        "SubsPlanFeatureValue": 1
+      }
+    ]
+  },
+  {
+    "SubsPlanId": 8,
+    "SubsPlanName": "Advanced Plan",
+    "SubsPlanDescription": "Advanced plan with unlimited features.",
+    "SubsPlanPrice": 89.99,
+    "SubsPlanBillingPeriodId": 3,
+    "SubsPlanIsActive": true,
+    "SubsPlanIsPopular": true,
+    "SubsPlanDesignerCategory": 3,
+    "CategoryName": "Advanced",
+    "StatusName": "Active",
+    "SubsPlanFeatures": [
+      {
+        "SubsPlanFeatureId": 18,
+        "SubsPlanFeatureName": "Storage",
+        "SubsPlanFeatureType": "numerical",
+        "SubsPlanFeatureValue": 2000
+      },
+      {
+        "SubsPlanFeatureId": 19,
+        "SubsPlanFeatureName": "Priority Support",
+        "SubsPlanFeatureType": "boolean",
+        "SubsPlanFeatureValue": 1
+      },
+      {
+        "SubsPlanFeatureId": 20,
+        "SubsPlanFeatureName": "API Integration",
+        "SubsPlanFeatureType": "boolean",
+        "SubsPlanFeatureValue": 1
+      }
+    ]
+  },
+  {
+    "SubsPlanId": 9,
+    "SubsPlanName": "Platinum Plan",
+    "SubsPlanDescription": "Platinum plan with all the premium features and more.",
+    "SubsPlanPrice": 149.99,
+    "SubsPlanBillingPeriodId": 3,
+    "SubsPlanIsActive": true,
+    "SubsPlanIsPopular": false,
+    "SubsPlanDesignerCategory": 4,
+    "CategoryName": "Platinum",
+    "StatusName": "Active",
+    "SubsPlanFeatures": [
+      {
+        "SubsPlanFeatureId": 21,
+        "SubsPlanFeatureName": "Storage",
+        "SubsPlanFeatureType": "numerical",
+        "SubsPlanFeatureValue": 3000
+      },
+      {
+        "SubsPlanFeatureId": 22,
+        "SubsPlanFeatureName": "Priority Support",
+        "SubsPlanFeatureType": "boolean",
+        "SubsPlanFeatureValue": 1
+      },
+      {
+        "SubsPlanFeatureId": 23,
+        "SubsPlanFeatureName": "Custom Branding",
+        "SubsPlanFeatureType": "boolean",
+        "SubsPlanFeatureValue": 1
+      },
+      {
+        "SubsPlanFeatureId": 24,
+        "SubsPlanFeatureName": "Dedicated Account Manager",
+        "SubsPlanFeatureType": "boolean",
+        "SubsPlanFeatureValue": 1
+      }
+    ]
+  },
+  {
+    "SubsPlanId": 10,
+    "SubsPlanName": "Business Plan",
+    "SubsPlanDescription": "Business-focused plan with specialized features.",
+    "SubsPlanPrice": 79.99,
+    "SubsPlanBillingPeriodId": 2,
+    "SubsPlanIsActive": true,
+    "SubsPlanIsPopular": true,
+    "SubsPlanDesignerCategory": 2,
+    "CategoryName": "Business",
+    "StatusName": "Active",
+    "SubsPlanFeatures": [
+      {
+        "SubsPlanFeatureId": 25,
+        "SubsPlanFeatureName": "Storage",
+        "SubsPlanFeatureType": "numerical",
+        "SubsPlanFeatureValue": 500
+      },
+      {
+        "SubsPlanFeatureId": 26,
+        "SubsPlanFeatureName": "Priority Support",
+        "SubsPlanFeatureType": "boolean",
+        "SubsPlanFeatureValue": 1
+      }
+    ]
+  },
+  {
+    "SubsPlanId": 11,
+    "SubsPlanName": "Custom Plan",
+    "SubsPlanDescription": "A plan that allows full customization.",
+    "SubsPlanPrice": 199.99,
+    "SubsPlanBillingPeriodId": 3,
+    "SubsPlanIsActive": true,
+    "SubsPlanIsPopular": false,
+    "SubsPlanDesignerCategory": 4,
+    "CategoryName": "Custom",
+    "StatusName": "Active",
+    "SubsPlanFeatures": [
+      {
+        "SubsPlanFeatureId": 27,
+        "SubsPlanFeatureName": "Storage",
+        "SubsPlanFeatureType": "numerical",
+        "SubsPlanFeatureValue": 10000
+      },
+      {
+        "SubsPlanFeatureId": 28,
+        "SubsPlanFeatureName": "Priority Support",
+        "SubsPlanFeatureType": "boolean",
+        "SubsPlanFeatureValue": 1
+      }
+    ]
+  },
+  {
+    "SubsPlanId": 12,
+    "SubsPlanName": "Flex Plan",
+    "SubsPlanDescription": "Flexible plan that adapts to user needs.",
+    "SubsPlanPrice": 59.99,
+    "SubsPlanBillingPeriodId": 2,
+    "SubsPlanIsActive": true,
+    "SubsPlanIsPopular": true,
+    "SubsPlanDesignerCategory": 3,
+    "CategoryName": "Flexible",
+    "StatusName": "Active",
+    "SubsPlanFeatures": [
+      {
+        "SubsPlanFeatureId": 29,
+        "SubsPlanFeatureName": "Storage",
+        "SubsPlanFeatureType": "numerical",
+        "SubsPlanFeatureValue": 500
+      }
+    ]
+  },
+  {
+    "SubsPlanId": 13,
+    "SubsPlanName": "Max Plan",
+    "SubsPlanDescription": "Maximum features with the highest level of support.",
+    "SubsPlanPrice": 249.99,
+    "SubsPlanBillingPeriodId": 3,
+    "SubsPlanIsActive": true,
+    "SubsPlanIsPopular": false,
+    "SubsPlanDesignerCategory": 4,
+    "CategoryName": "Max",
+    "StatusName": "Active",
+    "SubsPlanFeatures": [
+      {
+        "SubsPlanFeatureId": 30,
+        "SubsPlanFeatureName": "Storage",
+        "SubsPlanFeatureType": "numerical",
+        "SubsPlanFeatureValue": 20000
+      }
+    ]
+  },
+  {
+    "SubsPlanId": 14,
+    "SubsPlanName": "Basic Plus",
+    "SubsPlanDescription": "Slightly upgraded plan with a few additional features.",
+    "SubsPlanPrice": 29.99,
+    "SubsPlanBillingPeriodId": 1,
+    "SubsPlanIsActive": true,
+    "SubsPlanIsPopular": false,
+    "SubsPlanDesignerCategory": 1,
+    "CategoryName": "Basic Plus",
+    "StatusName": "Active",
+    "SubsPlanFeatures": [
+      {
+        "SubsPlanFeatureId": 31,
+        "SubsPlanFeatureName": "Storage",
+        "SubsPlanFeatureType": "numerical",
+        "SubsPlanFeatureValue": 25
+      },
+      {
+        "SubsPlanFeatureId": 32,
+        "SubsPlanFeatureName": "Support",
+        "SubsPlanFeatureType": "boolean",
+        "SubsPlanFeatureValue": 1
+      }
+    ]
+  },
+  {
+    "SubsPlanId": 15,
+    "SubsPlanName": "Advanced Plus",
+    "SubsPlanDescription": "Advanced plan with added features and support.",
+    "SubsPlanPrice": 79.99,
+    "SubsPlanBillingPeriodId": 2,
+    "SubsPlanIsActive": true,
+    "SubsPlanIsPopular": true,
+    "SubsPlanDesignerCategory": 2,
+    "CategoryName": "Advanced Plus",
+    "StatusName": "Active",
+    "SubsPlanFeatures": [
+      {
+        "SubsPlanFeatureId": 33,
+        "SubsPlanFeatureName": "Storage",
+        "SubsPlanFeatureType": "numerical",
+        "SubsPlanFeatureValue": 200
+      }
+    ]
+  },
+  {
+    "SubsPlanId": 16,
+    "SubsPlanName": "Ultimate Plus",
+    "SubsPlanDescription": "Ultimate plan with more customization.",
+    "SubsPlanPrice": 349.99,
+    "SubsPlanBillingPeriodId": 3,
+    "SubsPlanIsActive": true,
+    "SubsPlanIsPopular": false,
+    "SubsPlanDesignerCategory": 4,
+    "CategoryName": "Ultimate Plus",
+    "StatusName": "Active",
+    "SubsPlanFeatures": [
+      {
+        "SubsPlanFeatureId": 34,
+        "SubsPlanFeatureName": "Storage",
+        "SubsPlanFeatureType": "numerical",
+        "SubsPlanFeatureValue": 50000
+      },
+      {
+        "SubsPlanFeatureId": 35,
+        "SubsPlanFeatureName": "Priority Support",
+        "SubsPlanFeatureType": "boolean",
+        "SubsPlanFeatureValue": 1
+      }
+    ]
+  },
+  {
+    "SubsPlanId": 17,
+    "SubsPlanName": "Exclusive Plan",
+    "SubsPlanDescription": "Exclusive high-end plan with extra privileges.",
+    "SubsPlanPrice": 499.99,
+    "SubsPlanBillingPeriodId": 3,
+    "SubsPlanIsActive": true,
+    "SubsPlanIsPopular": false,
+    "SubsPlanDesignerCategory": 4,
+    "CategoryName": "Exclusive",
+    "StatusName": "Active",
+    "SubsPlanFeatures": [
+      {
+        "SubsPlanFeatureId": 36,
+        "SubsPlanFeatureName": "Storage",
+        "SubsPlanFeatureType": "numerical",
+        "SubsPlanFeatureValue": 100000
+      },
+      {
+        "SubsPlanFeatureId": 37,
+        "SubsPlanFeatureName": "Priority Support",
+        "SubsPlanFeatureType": "boolean",
+        "SubsPlanFeatureValue": 1
+      },
+      {
+        "SubsPlanFeatureId": 38,
+        "SubsPlanFeatureName": "Custom Branding",
+        "SubsPlanFeatureType": "boolean",
+        "SubsPlanFeatureValue": 1
+      }
+    ]
+  }
+]

@@ -18,13 +18,13 @@ export class PlanListGridComponent {
 
   selectedRow: any | null = null;
   viewItem(element:any){
-    this.actionPlan.emit({action: 'view', ele: element});
+    this.actionPlan.emit({action: 'view', data: element});
   }
   editItem(element:any){
-    this.actionPlan.emit({action: 'update', ele: element});
+    this.actionPlan.emit({action: 'update', data: element});
   }
   deleteItem(element: any){
-    this.actionPlan.emit({action: 'delete', ele: element});
+    this.actionPlan.emit({action: 'delete', data: element});
   }
 
   setSelectedRow(element: any){

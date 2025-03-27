@@ -100,9 +100,11 @@ export class SubscriptionPlanAdminComponent {
     });
     modalRef.componentInstance.mode = mode;
     modalRef.componentInstance.title = title;
+    console.log(element);
     modalRef.componentInstance.planData = element
       ? element
       : new SubscriptionPlanDto();
+      console.log(modalRef.componentInstance.planData);
     modalRef.componentInstance.billingPeriods = this.billingPeriods;
     modalRef.componentInstance.subscriptionPlanFeatures = this.subscriptionPlanFeatures;
     // modalRef.componentInstance.roles = this.roles;

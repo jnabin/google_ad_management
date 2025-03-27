@@ -39,14 +39,14 @@ export const routes: Routes = [
             },
             {
                 path: 'subscription-plan-admin',
-                loadComponent: () => import('./components/subscription-plan-admin/subscription-plan-admin.component').then(x => x.SubscriptionPlanAdminComponent),
+                loadComponent: () => import('./components/subscription-plan-admin-new/subscription-plan-admin-new.component').then(x => x.SubscriptionPlanAdminNewComponent),
                 data: {module: 'subscription-plan-admin'},
                 resolve: {translations: TranslationResolver}
             },
             {
-                path: 'subscription-plan-admin-new',
-                loadComponent: () => import('./components/subscription-plan-admin-new/subscription-plan-admin-new.component').then(x => x.SubscriptionPlanAdminNewComponent),
-                data: {module: 'subscription-plan-admin-new'},
+                path: 'subscription-plan-admin-old',
+                loadComponent: () => import('./components/subscription-plan-admin/subscription-plan-admin.component').then(x => x.SubscriptionPlanAdminComponent),
+                data: {module: 'subscription-plan-admin'},
                 resolve: {translations: TranslationResolver}
             },
         ]

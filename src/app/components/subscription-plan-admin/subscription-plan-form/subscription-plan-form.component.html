@@ -6,14 +6,14 @@
 </div>
 <div class="modal-body">
     <form [formGroup]="planForm" (ngSubmit)="onSubmit()">
-        <!-- Subscription Name -->
-        <mat-form-field appearance="outline" class="full-width">
-          <mat-label>Subscription Plan Name</mat-label>
-          <input matInput formControlName="SubsPlanName" required />
-          <mat-error *ngIf="planForm.get('SubsPlanName')?.invalid && planForm.get('SubsPlanName')?.touched">
-            Name is required (min 3 characters).
-          </mat-error>
-        </mat-form-field>
+      <!-- Subscription Name -->
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Subscription Plan Name</mat-label>
+        <input matInput formControlName="SubsPlanName" required />
+        <mat-error *ngIf="planForm.get('SubsPlanName')?.invalid && planForm.get('SubsPlanName')?.touched">
+          Name is required (min 3 characters).
+        </mat-error>
+      </mat-form-field>
       
         <!-- Description -->
         <mat-form-field appearance="outline" class="full-width">
@@ -57,6 +57,9 @@
         <mat-form-field appearance="outline" class="full-width">
           <mat-label>Designer Category</mat-label>
           <input matInput type="number" formControlName="SubsPlanDesignerCategory" required />
+          <mat-error *ngIf="planForm.get('SubsPlanDesignerCategory')?.invalid && planForm.get('SubsPlanDesignerCategory')?.touched">
+            Designer category required
+          </mat-error>
         </mat-form-field>
       
         <!-- Dynamic Features List using mat-chip-set -->
@@ -108,14 +111,50 @@
           
             <!-- Feature List -->
             <div class="feature-list-container">
-              <div *ngFor="let feature of SubsPlanFeatures.controls; let i = index" class="feature-item">
+              <div class="feature-item-table">
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th>#</th>
+                      <th>Name</th>
+                      <th>Value</th>
+                      <th></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let feature of SubsPlanFeatures.controls; let i = index">
+                        <td>
+                          <span>{{i+1}}</span>
+                        </td>
+                        <td><span>{{ feature.value.SubsPlanFeatureName }}</span></td>
+                        <td>
+                          <span *ngIf="feature.value.SubsPlanFeatureType == 'boolean' else noBooleanValue" class="feature-text">{{ feature.value.SubsPlanFeatureValue == 1 ? 'Yes' : 'False' }}</span>
+                <ng-template #noBooleanValue>
+                  <span *ngIf="feature.value.SubsPlanFeatureType == 'boolean'" class="feature-text">{{ feature.value.SubsPlanFeatureValue }}</span>
+                </ng-template>
+                        </td>
+                        <td>
+                          <span>
+                            <button [disabled]="mode == 'view'" type="button"  mat-icon-button color="warn" (click)="removeFeature(i)">
+                              <mat-icon>delete</mat-icon>
+                            </button>
+                          </span>
+                        </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <!-- <div *ngFor="let feature of SubsPlanFeatures.controls; let i = index" class="feature-item">
                 <mat-checkbox [disabled]="mode == 'view'" class="feature-checkbox"  [checked]="true"></mat-checkbox>
                 <span class="feature-text">{{ feature.value.SubsPlanFeatureName }}</span>
-                <span class="feature-text">{{ feature.value.SubsPlanFeatureValue }}</span>
+                <span *ngIf="feature.value.SubsPlanFeatureType == 'boolean' else noBooleanValue" class="feature-text">{{ feature.value.SubsPlanFeatureValue == 1 ? 'Yes' : 'False' }}</span>
+                <ng-template #noBooleanValue>
+                  <span *ngIf="feature.value.SubsPlanFeatureType == 'boolean'" class="feature-text">{{ feature.value.SubsPlanFeatureValue }}</span>
+                </ng-template>
                 <button [disabled]="mode == 'view'" type="button"  mat-icon-button color="warn" (click)="removeFeature(i)">
                   <mat-icon>delete</mat-icon>
                 </button>
-              </div>
+              </div> -->
             </div>
           </div>
           

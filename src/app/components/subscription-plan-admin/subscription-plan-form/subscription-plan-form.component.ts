@@ -57,8 +57,8 @@ export class SubscriptionPlanFormComponent implements OnInit {
     type: string;
   }[] = [];
   featureBooleanList = [
-    {id: 1, name: 'True'},
-    {id: 2, name: 'False'}
+    {id: 1, name: 'Yes'},
+    {id: 2, name: 'No'}
   ];
   toastService = inject(ToastService);
   planForm!: FormGroup;
@@ -89,7 +89,7 @@ export class SubscriptionPlanFormComponent implements OnInit {
       SubsPlanIsActive: [this.planData?.SubsPlanIsActive],
       SubsPlanIsPopular: [this.planData?.SubsPlanIsPopular],
       CurrentFeatureId: [0],
-      CurrentFeatureValue: [0],
+      CurrentFeatureValue: [null],
       SubsPlanDesignerCategory: [
         this.planData?.SubsPlanDesignerCategory,
         Validators.required,
@@ -134,10 +134,15 @@ export class SubscriptionPlanFormComponent implements OnInit {
   }
 
   addFeature(featureInput: HTMLInputElement) {
+    if(!featureInput.value){
+      this.toastService.showMessage("warning", "Please provide the feature name");
+      return;
+    }
     let plan = new SubscriptionPlanFeatureDto();
     plan.SubsPlanFeatureId = 0;
     plan.SubsPlanFeatureName = featureInput.value;
     plan.SubsPlanFeatureValue = 1;
+    plan.SubsPlanFeatureType = 'boolean';
     if (featureInput.value.trim()) {
       this.SubsPlanFeatures.push(this.fb.control(plan));
       featureInput.value = '';
@@ -148,6 +153,10 @@ export class SubscriptionPlanFormComponent implements OnInit {
     let isAvailable = this.SubsPlanFeatures.controls.find(
       (x) => x.value.SubsPlanFeatureId && x.value.SubsPlanFeatureId == value.SubsPlanFeatureId 
     );
+    if(!value.SubsPlanFeatureId || !value.SubsPlanFeatureValue){
+      this.toastService.showMessage("warning", "Please select the feature name and value");
+      return;
+    }
     if(!isAvailable){
       let plan = new SubscriptionPlanFeatureDto();
       plan.SubsPlanFeatureId = value.SubsPlanFeatureId;

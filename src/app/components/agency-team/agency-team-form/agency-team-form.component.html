@@ -7,7 +7,7 @@
   
   <div class="modal-body">
     <form [formGroup]="teamForm" (ngSubmit)="onSubmit()">
-      <mat-form-field appearance="outline" class="full-width">
+      <mat-form-field appearance="outline" class="full-width custom-hegiht">
         <mat-label>Unique Code</mat-label>
         <input matInput formControlName="UserUniqueCode" />
         <mat-error *ngIf="teamForm.get('UserUniqueCode')?.invalid && teamForm.get('UserUniqueCode')?.touched">

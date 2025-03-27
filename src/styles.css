@@ -147,8 +147,6 @@ h1.text-2xl{
     --tw-bg-opacity: 1;
     background-color: rgb(249 250 251/var(--tw-bg-opacity));
   }
-  element {
-}
 .bg-gray-200 {
   --tw-bg-opacity: 1;
   background-color: rgb(229 231 235/var(--tw-bg-opacity));
@@ -351,11 +349,46 @@ h1.text-2xl{
 
 body, * {
 	font-family: "Arcon", Arial, Helvetica, sans-serif;
+  --mat-sys-body-large-font: "Arcon", Arial, Helvetica, sans-serif;
+  --mat-sys-label-large-font: "Arcon", Arial, Helvetica, sans-serif;
+  --mdc-icon-button-icon-size: 25px;
+  --bs-btn-hover-bg: #005cbb !important;
+  --bs-btn-bg: #005cbb !important;
+  --mdc-outlined-text-field-outline-color: #ccc;
+  --mat-sys-outline: #ccc;
 }
+/* .btn-primary{
+  background-color: var(--bs-btn-hover-bg);
+} */
+/* mat-form-field.full-width, .custom-height{
+  height: 40px;
+} */
 .mat-mdc-text-field-wrapper{
   max-height: 40px;
 }
 
 .mdc-switch__track::before, .mdc-switch__track::after{
   border: none !important;
+}
+
+.mat-mdc-form-field-infix {
+  min-height: 40px !important;
+  height: 40px !important;
+  padding: 0px !important;
+  display: flex;
+  align-items: center;
+}
+  
+.mat-mdc-notch-piece{
+  display: flex;
+}
+.mdc-floating-label{
+  overflow: visible !important;
+}
+.mat-mdc-form-field-textarea-control{
+  padding-top: 20px;
+}
+
+.no-resize {
+  resize: none;
 }
