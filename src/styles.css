@@ -351,6 +351,7 @@ body, * {
 	font-family: "Arcon", Arial, Helvetica, sans-serif;
   --mat-sys-body-large-font: "Arcon", Arial, Helvetica, sans-serif;
   --mat-sys-label-large-font: "Arcon", Arial, Helvetica, sans-serif;
+  --mat-sys-title-large-font: "Arcon", Arial, Helvetica, sans-serif;
   --mdc-icon-button-icon-size: 25px;
   --bs-btn-hover-bg: #005cbb !important;
   --bs-btn-bg: #005cbb !important;
